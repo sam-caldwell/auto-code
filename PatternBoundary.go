@@ -2,7 +2,7 @@ package arguments
 
 import "regexp"
 
-type PatternBoundary[I int64, U uint64, F float64, S String, B bool] struct {
+type PatternBoundary[I int64, U uint64, F float64, S string, B bool] struct {
 	pattern *regexp.Regexp
 }
 

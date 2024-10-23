@@ -14,5 +14,6 @@ func main() {
 		Int("--number", 0, "test number", -1, 1).
 		Bool("--bool", true, "test boolean").
 		Float("--float", 3.14, "test float", -1.0, 4.0).
+		Flag("--flag", "this is a test flag.  It is true if present").
 		PrintHelp()
 }
