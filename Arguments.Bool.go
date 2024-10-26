@@ -2,7 +2,7 @@ package arguments
 
 func (arg *Arguments) Bool(flag string, defaultValue bool, help string) *Arguments {
 
-	arg.args[flag] = ArgumentDescriptor[int64, uint64, float64, string, bool]{
+	arg.args[flag] = &ArgumentDescriptor[int64, uint64, float64, string, bool]{
 		flag:   flag,
 		class:  Bool,
 		value:  defaultValue,

@@ -1,8 +1,10 @@
 package arguments
 
+import "fmt"
+
 func (arg *Arguments) Int(flag string, defaultValue int64, help string, min int64, max int64) *Arguments {
 
-	arg.args[flag] = ArgumentDescriptor[int64, uint64, float64, string, bool]{
+	arg.args[flag] = &ArgumentDescriptor[int64, uint64, float64, string, bool]{
 		flag:  flag,
 		class: Int,
 		value: defaultValue,
@@ -11,6 +13,10 @@ func (arg *Arguments) Int(flag string, defaultValue int64, help string, min int6
 			min: min,
 			max: max,
 		},
+	}
+
+	if err := arg.args[flag].SetValueInt(&defaultValue); err != nil {
+		arg.err = fmt.Errorf(defaultValueMustPassValidation, flag)
 	}
 	return arg
 }

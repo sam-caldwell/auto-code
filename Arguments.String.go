@@ -7,17 +7,18 @@ import (
 
 func (arg *Arguments) String(flag string, defaultValue string, help string, validationRegEx string) *Arguments {
 
-	if pattern := regexp.MustCompile(validationRegEx); pattern.MatchString(defaultValue) {
-		arg.args[flag] = ArgumentDescriptor[int64, uint64, float64, string, bool]{
-			flag:  flag,
-			class: String,
-			value: defaultValue,
-			help:  help,
-			bounds: PatternBoundary[int64, uint64, float64, string, bool]{
-				pattern: pattern,
-			},
-		}
-	} else {
+	pattern := regexp.MustCompile(validationRegEx)
+
+	arg.args[flag] = &ArgumentDescriptor[int64, uint64, float64, string, bool]{
+		flag:  flag,
+		class: String,
+		help:  help,
+		bounds: PatternBoundary[int64, uint64, float64, string, bool]{
+			pattern: pattern,
+		},
+	}
+
+	if err := arg.args[flag].SetValueString(&defaultValue); err != nil {
 		arg.err = fmt.Errorf(defaultValueMustPassValidation, flag)
 	}
 

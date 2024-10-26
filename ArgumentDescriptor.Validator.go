@@ -2,7 +2,7 @@ package arguments
 
 import "fmt"
 
-func (arg ArgumentDescriptor[I, U, F, S, B]) Validator() error {
+func (arg *ArgumentDescriptor[I, U, F, S, B]) Validator() error {
 	if arg.bounds.Validator(arg.value) {
 		return nil
 	}
