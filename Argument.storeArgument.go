@@ -5,7 +5,7 @@ import "fmt"
 // storeArgument - Extract, validate and store an expected (detected) argument.
 //
 // When this is called, we have a token which starts with '-' or '--' and we expect an argument.
-func (arg *Arguments) storeArgument(token *string, expectValue *bool, expectArgument *string, currentClass *ArgumentClass) {
+func (arg *Argument) storeArgument(token *string, expectValue *bool, expectArgument *string, currentClass *ArgumentClass) {
 	actualArgument, tokenIsValid := arg.args[*token]
 	if !tokenIsValid {
 		arg.err = fmt.Errorf(unknownOrUnexpectedArgument)

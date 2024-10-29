@@ -1,6 +1,6 @@
 package arguments
 
-type Arguments struct {
+type Argument struct {
 	err         error
 	programName string
 	copyright   string

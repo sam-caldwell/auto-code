@@ -1,6 +1,6 @@
 package arguments
 
-func (arg *Arguments) Flag(flag string, help string) *Arguments {
+func (arg *Argument) Flag(flag string, help string) *Argument {
 
 	arg.args[flag] = &ArgumentDescriptor[int64, uint64, float64, string, bool]{
 		flag:   flag,

@@ -1,6 +1,6 @@
 package arguments
 
-func (arg *Arguments) Bool(flag string, defaultValue bool, help string) *Arguments {
+func (arg *Argument) Bool(flag string, defaultValue bool, help string) *Argument {
 
 	arg.args[flag] = &ArgumentDescriptor[int64, uint64, float64, string, bool]{
 		flag:   flag,

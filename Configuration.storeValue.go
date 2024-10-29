@@ -1,9 +1,12 @@
 package arguments
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 // storeValue - Store a token as a value if it is not an argument since we expect a value.
-func (arg *Arguments) storeValue(token *string, expectValue *bool, expectArgument *string, currentClass *ArgumentClass) {
+func (arg *Argument) storeValue(token *string, expectValue *bool, expectArgument *string, currentClass *ArgumentClass) {
 	if detectArgument(token) {
 		arg.err = fmt.Errorf(unknownOrUnexpectedArgument)
 		return
@@ -17,7 +20,11 @@ func (arg *Arguments) storeValue(token *string, expectValue *bool, expectArgumen
 	case Float:
 		arg.err = arg.args[*expectArgument].SetValueFloat(token)
 	case Int:
-		arg.err = arg.args[*expectArgument].SetValueInt(token)
+		if value, err := strconv.ParseInt(*token, 10, 64); err != nil {
+			arg.err = err
+		} else {
+			arg.err = arg.args[*expectArgument].SetValueInt(value)
+		}
 	case String, Directory, File, Secret, Email:
 		arg.err = arg.args[*expectArgument].SetValueString(token)
 	case Uint:

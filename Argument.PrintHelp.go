@@ -7,7 +7,7 @@ import (
 )
 
 // PrintHelp - print the internal state
-func (arg *Arguments) PrintHelp() *Arguments {
+func (arg *Argument) PrintHelp() *Argument {
 	if arg.err != nil {
 		ansi.Red().Printf("error: %v\n", arg.err).Reset()
 	}

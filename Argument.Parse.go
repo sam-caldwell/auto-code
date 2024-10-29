@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-func (arg *Arguments) Parse() *Arguments {
+func (arg *Argument) Parse() *Argument {
 
 	var expectValue bool = false
 	var expectArgument string

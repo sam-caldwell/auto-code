@@ -2,7 +2,7 @@ package arguments
 
 import "fmt"
 
-func (arg *Arguments) storePositionalArgument(token *string, position uint, expectValue *bool, expectArgument *string, currentClass *ArgumentClass) {
+func (arg *Argument) storePositionalArgument(token *string, position uint, expectValue *bool, expectArgument *string, currentClass *ArgumentClass) {
 	// ToDo: check if any positional argument exists at this location.
 
 	//var actualArgument ArgumentDescriptor[int64, uint64, float64, string, bool]

@@ -5,7 +5,7 @@ import (
 	"regexp"
 )
 
-func (arg *Arguments) String(flag string, defaultValue string, help string, validationRegEx string) *Arguments {
+func (arg *Argument) String(flag string, defaultValue string, help string, validationRegEx string) *Argument {
 
 	pattern := regexp.MustCompile(validationRegEx)
 
