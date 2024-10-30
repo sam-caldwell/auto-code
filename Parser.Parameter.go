@@ -29,7 +29,7 @@ package arguments
 //			arguments.Cli("--ip"),
 //		).
 //		Parse()                              // process the definition to create a fully resolved Configuration.
-func (parser *Parser) Parameter(name, help string, value *Value, sources ...DataSource) *Parser {
+func (parser *Parser) Parameter(name, help string, value ValueDataInterface, sources ...DataSource) *Parser {
 
 	// initialize our data sources, which may cause an error we need to register.
 	dataSources, err := NewDataSourceCollection(&sources)
