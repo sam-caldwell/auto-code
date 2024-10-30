@@ -21,13 +21,3 @@ type ParameterDefinition struct {
 	value    *Value
 	sources  DataSourceCollection // order must be preserved!
 }
-
-// HelpText - Return the HelpText as a string
-func (p *ParameterDefinition) HelpText() string {
-	return string(p.helpText)
-}
-
-// SourceCount - Return the number of data sources
-func (p *ParameterDefinition) SourceCount() int {
-	return p.sources.Count()
-}
