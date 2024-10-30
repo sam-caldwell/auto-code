@@ -1,11 +1,9 @@
 package arguments
 
 // ParameterName - the name of a given configuration parameter
+//
+// Please use NewParameterName() to create ParameterName objects to ensure
+// proper validation and avoid otherwise avoidable bugs.
+//
+// A ParameterName must follow the pattern enforced by NewParameterName()
 type ParameterName string
-
-// set - a sanitizer/setter for the ParameterName type
-func (p *ParameterName) set(name string) error {
-	//ToDo: add validation and return errors if appropriate
-	*p = ParameterName(name)
-	return nil
-}
