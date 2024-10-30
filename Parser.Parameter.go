@@ -20,18 +20,19 @@ package arguments
 //
 //	config, err := arguments.NewParser().
 //		Parameter(
-//			"network.address",                 // Define the identifier used in the parser to represent the value.
-//			"this is the listener Ip address", // define help text used in error messages"
-//			arguments.String("0.0.0.0", arguments.Pattern(ipAddressRegex)), //Define a validator
-//			arguments.YamlFile("config.yaml", "net.ip"),                    //define the data source(s) in order of reverse precedence
+//			"network.address",                                              // name the parameter
+//			"this is the listener Ip address",                              // give the parameter some help text
+//			arguments.String("0.0.0.0", arguments.Pattern(ipAddressRegex)), // add a validator
+//			arguments.YamlFile("config.yaml", "net.ip"),                    // add at least one supported data source
 //			arguments.Environment("LISTEN_IP"),
 //			arguments.Cli("-n"),
 //			arguments.Cli("--ip"),
 //		).
-//		Parse() // return a resolved configuration and any error state
+//		Parse()                              // process the definition to create a fully resolved Configuration.
 func (parser *Parser) Parameter(name, help string, value *Value, sources ...*DataSource) *Parser {
 
-	dataSources, err := NewDataSourceCollection(sources)
+	// initialize our data sources, which may cause an error we need to register.
+	dataSources, err := NewDataSourceCollection(&sources)
 
 	if err != nil {
 		// We register the error state, but we do not bail,
@@ -41,6 +42,7 @@ func (parser *Parser) Parameter(name, help string, value *Value, sources ...*Dat
 		parser.err = err
 	}
 
+	// initialize our parameter collection, which may cause an error we need to register.
 	parser.parameters, err = NewParameterCollection(name, help, value, dataSources)
 
 	if err != nil && parser.err == nil {
