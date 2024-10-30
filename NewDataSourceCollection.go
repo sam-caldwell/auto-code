@@ -13,7 +13,7 @@ import (
 // We create a list of pointers to reduce memory and processing overhead when the list is passed
 // to functions.  Likewise, we pass the sources list as a pointer to make the copied information
 // in the function call faster (64-bits versus n-bytes).
-func NewDataSourceCollection(sources *[]*DataSource) (p DataSourceCollection, err error) {
+func NewDataSourceCollection(sources *[]DataSource) (p DataSourceCollection, err error) {
 
 	// nil pointer check
 	if sources == nil {
