@@ -10,18 +10,18 @@ integration.
 
 The MVP `DataSource` objects are--
 
-* `YamlFile`: Consumes a YAML configuration file and returns the appropriate
+* `dsCliOption`: Returns the corresponding command-line option flag value.
+
+* `dsEnvironment`: Returns the value for a given environment variable value.
+
+* `dsJsonFile`: Consumes a JSON configuration file and returns the appropriate
   parameter value.
 
-* `JsonFile`: Consumes a JSON configuration file and returns the appropriate
-  parameter value.
-
-* `KeyValueFile`: Consumes a key-value text file and returns a corresponding
+* `dsKeyValueFile`: Consumes a key-value text file and returns a corresponding
   value for a given key.
 
-* `Environment`: Returns the value for a given environment variable value.
-
-* `CliOption`: Returns the corresponding command-line option flag value.
+* `dsYamlFile`: Consumes a YAML configuration file and returns the appropriate
+  parameter value.
 
 ## Structure
 
@@ -31,13 +31,15 @@ The MVP `DataSource` objects are--
 
 ## Dependencies:
 
-* [YamlFile](../objects/YamlFile.md)
+* [dsCliOption](../objects/dsCliOption.md)
 
-* [JsonFile](../objects/JsonFile.md)
+* [dsEnvironment](../objects/dsEnvironment.md)
 
-* [KeyValueFile](../objects/KeyValueFile.md)
+* [dsJsonFile](../objects/dsJsonFile.md)
 
-* [Environment](../objects/Environment.md)
+* [dsKeyValueFile](../objects/dsKeyValueFile.md)
 
-* [CliOption](../objects/CliOption.md)
+* [dsYamlFile](../objects/dsYamlFile.md)
+
+
 
