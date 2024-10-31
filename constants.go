@@ -1,6 +1,21 @@
 package arguments
 
 const (
+	emptyDataSourceList            = "parameter definitions require at least one DataSource"
+	invalidCliOption               = "a cli option must start with - or -- and have at least one character or number (%s)"
+	invalidDefaultValue            = "invalid default value"
+	invalidEnvironmentVariableName = "an invalid environment variable name is encountered (%s)"
+	invalidHelpText                = "invalid help text (cannot be empty or only whitespace"
+	invalidParameterName           = "invalid parameter name"
+	invalidProgramName             = "invalid program name"
+	invalidValueType               = "unknown or unexpected value type"
+	nilParameterDefinition         = "parameter definition is nil"
+	nilParameterName               = "parameterName is nil"
+	nilDataSourceListPointer       = "programming error: nil sources pointer"
+	nilSourceEncountered           = "a nil data source was encountered in arguments parser"
+	nilValidatorObject             = "a nil validator object was encountered"
+	nilValueObject                 = "a nil value object was encountered in arguments parser"
+
 	validationFailedError                         = "validation failed.  Must have follow '%s'"
 	numericTypeCannotPerformPatternBoundsCheck    = "numeric type cannot perform pattern bounds check"
 	nonNumericTypeCannotPerformNumericBoundsCheck = "non-numeric type cannot perform pattern bounds check"

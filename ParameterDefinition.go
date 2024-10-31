@@ -18,6 +18,6 @@ package arguments
 //	  └── sources: DataSourceCollection
 type ParameterDefinition struct {
 	helpText HelpText
-	value    *Value
+	value    ValueDataInterface
 	sources  DataSourceCollection // order must be preserved!
 }

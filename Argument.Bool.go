@@ -1,8 +1,11 @@
 package arguments
 
+import "strings"
+
 func (arg *Argument) Bool(flag string, defaultValue bool, help string) *Argument {
 
-	arg.args[flag] = &ArgumentDescriptor[int64, uint64, float64, string, bool]{
+	name := strings.TrimPrefix("--", strings.TrimPrefix(flag, "-"))
+	arg.args[name] = &ArgumentDescriptor[int64, uint64, float64, string, bool]{
 		flag:   flag,
 		class:  Bool,
 		value:  defaultValue,

@@ -10,7 +10,7 @@ func TestParser_Struct(t *testing.T) {
 		programName:        "test name",
 		programDescription: "test description",
 		programCopyright:   "test copyright",
-		data:               make(map[ParameterName]ParameterList),
+		parameters:         make(map[ParameterName]ParameterList),
 		err:                fmt.Errorf("test"),
 	}
 }
