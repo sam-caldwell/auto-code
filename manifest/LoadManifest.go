@@ -8,13 +8,20 @@ import (
 
 // LoadManifest loads and parses the YAML manifest file
 func LoadManifest(filePath string) (*Manifest, error) {
+
 	data, err := os.ReadFile(filePath)
 	if err != nil {
 		return nil, err
 	}
+
 	var manifest Manifest
 	if err := yaml.Unmarshal(data, &manifest); err != nil {
 		return nil, err
 	}
+
+	if err := manifest.Verify(); err != nil {
+		return nil, err
+	}
+
 	return &manifest, nil
 }
