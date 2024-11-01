@@ -23,7 +23,7 @@ func (manifest *Manifest) gitLocalRepo() (localRepo GitRepoUrlString, err error)
 	// Split the output by lines and extract the first line
 	lines := strings.Split(out.String(), LineEnding)
 	if len(lines) == 0 || len(lines[0]) == 0 {
-		return localRepo, fmt.Errorf(errMissingGitRepoUrl) // No output
+		return localRepo, fmt.Errorf(errMissingLocalGitRepoUrl) // No output
 	}
 
 	// Split the first line by whitespace and return the second column
