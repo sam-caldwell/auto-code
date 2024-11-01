@@ -25,6 +25,8 @@ global:
   language: go
   # version must follow semantic version formatting
   version: 0.0.1
+  # git repo url (either ssh or https)
+  git_repo: git@github.com:sam-caldwell/auto-code.git
 #
 # Config section:
 #   defines the Configuration struct used to configure the program runtime using a variety of

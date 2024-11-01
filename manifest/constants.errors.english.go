@@ -13,6 +13,7 @@ const (
 	errInvalidEmailAddress             = `email address must be valid`
 	errInvalidFileName                 = `invalid file name (%s)`
 	errInvalidFileFormat               = `invalid file format (%s)`
+	errInvalidGitRepoUrl               = `invalid git url (%s)`
 	errInvalidLanguagePattern          = `language must be supported by auto-code`
 	errInvalidLicensePattern           = `license must match pattern (%s)`
 	errInvalidMinMaxValue              = `min/max values must be numeric where min<max`
@@ -26,6 +27,8 @@ const (
 	errMissingCommandlineArgument      = `missing argument: must have either short, long or both argument type`
 	errMissingConfigProperties         = `config.properties must have at least one element`
 	errMissingConfigSource             = `config.sources must have at least one element`
+	errMissingGitRepoUrl               = `missing GitRepoUrl (git remote -v)`
+	errSetGitRepoFailed                = `SetGitRepo failed: 'Error:%v'`
 	errUnknownProperty                 = `unknown property (%s)`
 	errUnsupportedPropertyType         = `unsupported property type for '%s'`
 	errUnsupportedPropertyValidator    = `unsupported property validator for '%s'`

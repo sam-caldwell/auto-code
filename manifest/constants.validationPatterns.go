@@ -56,4 +56,6 @@ const (
 	shortArgumentPattern = `^-[a-zA-Z0-9]$`
 
 	longArgumentPattern = `^--([a-zA-Z0-9][a-zA-Z0-9_\-\\.]{0,254)[a-zA-Z0-9]{0,1}$`
+
+	gitRepoUrlPattern = ``
 )

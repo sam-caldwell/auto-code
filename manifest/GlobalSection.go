@@ -17,4 +17,6 @@ type GlobalSection struct {
 	Language LanguageName `yaml:"language"`
 
 	Version SemanticVersionString `yaml:"version"`
+
+	GitRepoUrl GitRepoUrlString
 }
