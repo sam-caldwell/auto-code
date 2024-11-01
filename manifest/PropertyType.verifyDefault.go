@@ -5,8 +5,8 @@ import (
 	"reflect"
 )
 
-// VerifyDefault - verify that the ConfigProperty.DefaultValue is correct or set its empty state.
-func (propertyType *PropertyType) VerifyDefault(name *PropertyName, value *DefaultValueType) error {
+// verifyDefault - verify that the ConfigProperty.DefaultValue is correct or set its empty state.
+func (propertyType *PropertyType) verifyDefault(name *PropertyName, value *DefaultValueType) error {
 
 	// If there is no default value we will create the empty-value default for the given type.
 	if *value == nil {
