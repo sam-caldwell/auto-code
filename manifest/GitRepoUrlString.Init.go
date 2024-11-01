@@ -9,15 +9,15 @@ import (
 func (repo *GitRepoUrlString) Init() error {
 
 	if s := string(*repo); s == EmptyString {
-		return fmt.Errorf(errMissingGitRepoUrl)
+		return fmt.Errorf(errEmptyGitRepoUrl)
 	}
 
 	if err := exec.Command("git", "init").Run(); err != nil {
-		return err
+		return fmt.Errorf(errGitInitFailed, err)
 	}
 
 	if err := exec.Command("git", "remote", "add", "origin", string(*repo)).Run(); err != nil {
-		return err
+		return fmt.Errorf(errGitRemoteAddFailed, err)
 	}
 
 	return nil
