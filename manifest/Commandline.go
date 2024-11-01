@@ -3,11 +3,9 @@ package manifest
 
 // Commandline - maps CLI arguments to properties
 type Commandline struct {
-	Property string `yaml:"property"`
-
 	Required bool `yaml:"required"`
 
-	Short string `yaml:"short"`
+	Short ShortArgumentString `yaml:"short,omitempty"`
 
-	Long string `yaml:"long"`
+	Long LongArgumentString `yaml:"long,omitempty"`
 }
