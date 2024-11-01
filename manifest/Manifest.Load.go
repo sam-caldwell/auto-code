@@ -11,16 +11,18 @@ func (manifest *Manifest) Load(filePath string) (err error) {
 
 	var data []byte
 
+	// read the YAML manifest text.
 	if data, err = os.ReadFile(filePath); err != nil {
 		return err
 	}
 
+	// parse the YAML manifest
 	if err := yaml.Unmarshal(data, manifest); err != nil {
 		return err
 	}
 
 	// get the local repo url and merge it with what may have been defined in the yaml file
-	if err := manifest.GetLocalRepo(); err != nil {
+	if err := manifest.UpdateGitRepo(); err != nil {
 		return err
 	}
 
