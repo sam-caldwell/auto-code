@@ -3,7 +3,7 @@ package manifest
 import "fmt"
 
 // Verify - Validate that the property validator object is appropriate for its associated property.
-func (validator ConfigPropertyValidator) Verify(name *PropertyName, property *ConfigProperty) error {
+func (validator PropertyValidator) Verify(name *PropertyName, property *ConfigProperty) error {
 
 	switch class := validator.Class; class {
 
