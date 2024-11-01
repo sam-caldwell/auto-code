@@ -11,7 +11,3 @@ type ConfigFile struct {
 
 	Map PropertyMap `yaml:"map"`
 }
-
-// ObjectPropertyString - a string representing a dot-delimited object property name
-type ObjectPropertyString struct {
-}
