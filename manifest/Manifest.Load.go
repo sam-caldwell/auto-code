@@ -7,26 +7,26 @@ import (
 )
 
 // Load - loads and parses the YAML manifest file and verifies its content.
-func (manifest *Manifest) Load(filePath string) error {
+func (manifest *Manifest) Load(filePath string) (err error) {
 
-	data, err := os.ReadFile(filePath)
+	var data []byte
 
-	if err != nil {
-
+	if data, err = os.ReadFile(filePath); err != nil {
 		return err
-
 	}
 
 	if err := yaml.Unmarshal(data, manifest); err != nil {
-
 		return err
-
 	}
 
-	if err := manifest.Verify(); err != nil {
-
+	// get the local repo url and merge it with what may have been defined in the yaml file
+	if err := manifest.GetLocalRepo(); err != nil {
 		return err
+	}
 
+	// verify the manifest content
+	if err := manifest.Verify(); err != nil {
+		return err
 	}
 
 	return nil
