@@ -5,7 +5,7 @@ import (
 )
 
 // Verify - verify that config.properties is properly formatted
-func (properties ConfigProperties) Verify() error {
+func (properties ConfigProperties) Verify(_ *ConfigProperties) error {
 
 	if len(properties) < 1 {
 

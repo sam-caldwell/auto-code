@@ -8,7 +8,7 @@ import (
 // Verify - Verify that the source list is correct (non-empty, containing valid values)
 //
 // WARNING: At no point can the SourceList order be altered.  That would break merge ordering.
-func (s SourceList) Verify() error {
+func (s SourceList) Verify(_ *ConfigProperties) error {
 
 	uniqueSources := map[string]struct{}{}
 

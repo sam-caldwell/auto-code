@@ -1,5 +1,7 @@
 package manifest
 
+import "fmt"
+
 // Verify - verify the manifest.yaml definition of an environment variable processor as a data source.
 //
 // In a manifest.yaml file, environment is configured by something like this--
@@ -11,7 +13,9 @@ package manifest
 //
 // The list of key-value pairs represents a property name (left-hand side)
 // and its environment variable name (right-hand side).
-func (environment *ConfigEnvironment) Verify() error {
+//
+// We need to verify the property (name) exists in properties.
+func (environment *ConfigEnvironment) Verify(properties *ConfigProperties) error {
 
 	for key, value := range *environment {
 
@@ -23,6 +27,11 @@ func (environment *ConfigEnvironment) Verify() error {
 			return err
 		}
 
+		if _, ok := (*properties)[key]; !ok {
+			return fmt.Errorf(errUnknownProperty, key)
+		}
 	}
+
 	return nil
+
 }
