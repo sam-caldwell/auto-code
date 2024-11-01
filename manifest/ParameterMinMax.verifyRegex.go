@@ -6,12 +6,12 @@ import (
 )
 
 // verifyRegex - verify the validator regex parameter is proper.
-func (v ConfigPropertyValidator) verifyRegex(name *string) (err error) {
+func (validator ConfigPropertyValidator) verifyRegex(name *PropertyName) (err error) {
 
-	switch v.Parameter.(type) {
+	switch validator.Parameter.(type) {
 	case string:
 
-		regularExpression := v.Parameter.(string)
+		regularExpression := validator.Parameter.(string)
 
 		if _, err = regexp.Compile(regularExpression); err != nil {
 
