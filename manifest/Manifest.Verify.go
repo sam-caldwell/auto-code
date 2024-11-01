@@ -3,10 +3,10 @@ package manifest
 
 // Verify - Verify the manifest.yaml file contains valid data.
 func (manifest *Manifest) Verify() error {
-	if err := manifest.verifyGlobal(); err != nil {
+	if err := manifest.Global.Verify(); err != nil {
 		return err
 	}
-	if err := manifest.verifyConfig(); err != nil {
+	if err := manifest.Config.Verify(); err != nil {
 		return err
 	}
 	//
