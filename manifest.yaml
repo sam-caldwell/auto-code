@@ -54,13 +54,17 @@ config:
     - listenAddress:
         type: string
         validator:
-          class: pattern
-          parameter: <ip address regex> # ToDo: create an ip address regex
+          class: regex
+          parameter: | 
+
         default: 0.0.0.0
     - listenPort:
         type: uint16
         validator:
-          class: null
+          class: minmax
+          parameter:
+            - min: 8000
+            - max: 8888
         default: 8080
     - protocol:
         type: string
