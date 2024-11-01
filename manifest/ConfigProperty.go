@@ -2,7 +2,7 @@ package manifest
 
 // ConfigProperty defines each configurable property
 type ConfigProperty struct {
-	Type      string                  `yaml:"type"`
+	Type      PropertyType            `yaml:"type"`
 	Validator ConfigPropertyValidator `yaml:"validator"`
-	Default   any                     `yaml:"default,omitempty"`
+	Default   DefaultValueType        `yaml:"default,omitempty"`
 }
