@@ -1,7 +1,11 @@
 package manifest
 
 // Verify - verify a given element of config.properties[]
-func (property *ConfigProperty) Verify(name *PropertyName) error {
+func (property *ConfigProperty) Verify(name *NameIdentifier) error {
+
+	if err := name.Verify(); err != nil {
+		return err
+	}
 
 	if err := property.Type.Verify(name); err != nil {
 
