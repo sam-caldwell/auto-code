@@ -11,7 +11,7 @@ func (validator ConfigPropertyValidator) Verify(name *PropertyName, property *Co
 
 		if property.isPropertyTypeNumeric() {
 
-			return verifyMinMax(name, property)
+			return verifyParameterMinMax(name, property)
 
 		}
 
