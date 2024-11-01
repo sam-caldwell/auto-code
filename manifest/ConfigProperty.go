@@ -4,5 +4,5 @@ package manifest
 type ConfigProperty struct {
 	Type      string                  `yaml:"type"`
 	Validator ConfigPropertyValidator `yaml:"validator"`
-	Default   interface{}             `yaml:"default"`
+	Default   any                     `yaml:"default,omitempty"`
 }
