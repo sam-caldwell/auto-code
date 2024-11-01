@@ -6,6 +6,7 @@ import "fmt"
 func (validator ConfigPropertyValidator) Verify(name *PropertyName, property *ConfigProperty) error {
 
 	switch class := validator.Class; class {
+
 	case "minmax":
 
 		if property.isPropertyTypeNumeric() {
