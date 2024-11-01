@@ -15,10 +15,10 @@ type Manifest struct {
 	} `yaml:"global"`
 
 	Config struct {
-		Sources     []string            `yaml:"sources"`
-		Properties  []ConfigProperty    `yaml:"properties"`
-		File        ConfigFile          `yaml:"file"`
-		Environment []ConfigEnvironment `yaml:"environment"`
-		Commandline []ConfigCommandline `yaml:"commandline"`
+		Sources     []string                  `yaml:"sources"`
+		Properties  map[string]ConfigProperty `yaml:"properties"`
+		File        ConfigFile                `yaml:"file"`
+		Environment []ConfigEnvironment       `yaml:"environment"`
+		Commandline []ConfigCommandline       `yaml:"commandline"`
 	} `yaml:"config"`
 }
