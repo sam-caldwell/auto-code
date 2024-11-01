@@ -1,19 +1,20 @@
 package manifest
 
+// GlobalSection - Manifest Yaml global parameters section
 type GlobalSection struct {
-	Name string `yaml:"name"`
+	Name NameIdentifier `yaml:"name"`
 
-	Description string `yaml:"description"`
+	Description NonEmptyText `yaml:"description"`
 
-	Author string `yaml:"author"`
+	Author NonEmptyText `yaml:"author"`
 
-	Email string `yaml:"email"`
+	Email EmailAddress `yaml:"email"`
 
-	Copyright string `yaml:"copyright"`
+	Copyright CopyrightString `yaml:"copyright"`
 
-	License string `yaml:"license"`
+	License LicenseString `yaml:"license"`
 
-	Language string `yaml:"language"`
+	Language LanguageName `yaml:"language"`
 
-	Version string `yaml:"version"`
+	Version SemanticVersionString `yaml:"version"`
 }
