@@ -6,7 +6,7 @@ import (
 )
 
 // Verify - Validate the PropertyType and ensure it is lowercase and has no leading or trailing whitespace.
-func (propertyType *PropertyType) Verify(name *PropertyName) error {
+func (propertyType *PropertyType) Verify(name *NameIdentifier) error {
 
 	for _, pType := range strings.Split(configPropertyTypes, Comma) {
 
