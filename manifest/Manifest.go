@@ -1,4 +1,3 @@
-// Package manifest generator/Manifest.go
 package manifest
 
 // Manifest represents the YAML manifest structure for code generation
@@ -15,10 +14,10 @@ type Manifest struct {
 	} `yaml:"global"`
 
 	Config struct {
-		Sources     []string                  `yaml:"sources"`
-		Properties  map[string]ConfigProperty `yaml:"properties"`
-		File        ConfigFile                `yaml:"file"`
-		Environment []ConfigEnvironment       `yaml:"environment"`
-		Commandline []ConfigCommandline       `yaml:"commandline"`
+		Sources     SourceList          `yaml:"sources"`
+		Properties  ConfigPropertiesMap `yaml:"properties"`
+		File        ConfigFile          `yaml:"file"`
+		Environment ConfigEnvironment   `yaml:"environment"`
+		Commandline CommandlineArgList  `yaml:"commandline"`
 	} `yaml:"config"`
 }
