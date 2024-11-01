@@ -5,14 +5,12 @@ import (
 	"regexp"
 )
 
-// verifyConfigSources - verify config.sources
-//
-// To add a new supported config.sources, update configSourcesPattern constants
-func (manifest *Manifest) verifyConfigSources() error {
+// Verify - Verify that the source list is correct (non-empty, containing valid values)
+func (s SourceList) Verify() error {
 
 	uniqueSources := map[string]struct{}{}
 
-	for _, source := range manifest.Config.Sources {
+	for _, source := range s {
 
 		if pattern := regexp.MustCompile(configSourcesPattern); pattern.MatchString(source) {
 			return fmt.Errorf(errInvalidConfigSource, configSourcesPattern)
