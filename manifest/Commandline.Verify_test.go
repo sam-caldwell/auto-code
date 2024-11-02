@@ -1,7 +1,9 @@
 package manifest
 
 import (
-	"github.com/sam-caldwell/auto-code/manifest/messages"
+	data2 "github.com/sam-caldwell/auto-code/data"
+	"github.com/sam-caldwell/auto-code/manifest/words"
+	"github.com/sam-caldwell/auto-code/messages"
 	"testing"
 )
 
@@ -17,8 +19,8 @@ func TestCommandline_Verify(t *testing.T) {
 	t.Run("sad path: empty short and long should fail", func(t *testing.T) {
 		var cmd Commandline
 		cmd.Required = true
-		cmd.Short = EmptyString
-		cmd.Long = EmptyString
+		cmd.Short = words.EmptyString
+		cmd.Long = words.EmptyString
 		if err := cmd.Verify(nil); err == nil {
 			t.Fatalf("Verify() should have failed since Short and Long are empty")
 		} else {
@@ -199,10 +201,10 @@ func TestCommandline_Verify(t *testing.T) {
 		for arg, expectation := range testData {
 			var cmd Commandline
 			if expectation.short {
-				cmd.Short = ShortArgumentString(arg)
+				cmd.Short = data2.ShortArgumentString(arg)
 			}
 			if expectation.long {
-				cmd.Long = LongArgumentString(arg)
+				cmd.Long = data2.LongArgumentString(arg)
 			}
 
 			err := cmd.Verify(nil)

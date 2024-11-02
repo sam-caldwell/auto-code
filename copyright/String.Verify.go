@@ -1,14 +1,14 @@
-package manifest
+package copyright
 
 import (
 	"fmt"
-	"github.com/sam-caldwell/auto-code/manifest/messages"
-	"github.com/sam-caldwell/auto-code/manifest/patterns"
+	"github.com/sam-caldwell/auto-code/messages"
+	"github.com/sam-caldwell/auto-code/patterns"
 	"regexp"
 )
 
 // Verify - Validate that the value is a proper copyright string
-func (copyright CopyrightString) Verify() error {
+func (copyright String) Verify() error {
 
 	if pattern := regexp.MustCompile(patterns.CopyrightPattern); pattern.MatchString(string(copyright)) {
 

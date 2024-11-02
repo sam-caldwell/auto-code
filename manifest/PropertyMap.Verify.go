@@ -2,7 +2,7 @@ package manifest
 
 import (
 	"fmt"
-	"github.com/sam-caldwell/auto-code/manifest/messages"
+	"github.com/sam-caldwell/auto-code/messages"
 )
 
 // Verify - Validate that the propertyMap key exists in config.Properties

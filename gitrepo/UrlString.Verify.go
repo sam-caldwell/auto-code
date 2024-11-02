@@ -2,8 +2,7 @@ package gitrepo
 
 import (
 	"fmt"
-	"github.com/sam-caldwell/auto-code/manifest/messages"
-	"github.com/sam-caldwell/auto-code/patterns"
+	"github.com/sam-caldwell/auto-code/messages"
 	"regexp"
 )
 

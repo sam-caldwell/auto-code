@@ -1,7 +1,11 @@
 package manifest
 
+import (
+	"github.com/sam-caldwell/auto-code/data"
+)
+
 // Verify - verify a given element of config.properties[]
-func (property *ConfigProperty) Verify(name *NameIdentifier) error {
+func (property *ConfigProperty) Verify(name *data.NameIdentifier) error {
 
 	if err := name.Verify(); err != nil {
 		return err

@@ -2,15 +2,15 @@ package gitrepo
 
 import (
 	"fmt"
-	"github.com/sam-caldwell/auto-code/manifest"
-	"github.com/sam-caldwell/auto-code/manifest/messages"
+	"github.com/sam-caldwell/auto-code/messages"
+	"github.com/sam-caldwell/auto-code/words"
 	"os/exec"
 )
 
 // Init - initialize local git repository and add a remote origin.
 func (repo *UrlString) Init() error {
 
-	if s := string(*repo); s == manifest.EmptyString {
+	if s := string(*repo); s == words.EmptyString {
 		return fmt.Errorf(messages.ErrEmptyGitRepoUrl)
 	}
 

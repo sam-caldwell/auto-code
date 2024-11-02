@@ -1,7 +1,7 @@
 package manifest
 
 import (
-	"github.com/sam-caldwell/auto-code/manifest/validators"
+	"github.com/sam-caldwell/auto-code/validators"
 	"testing"
 )
 
@@ -20,7 +20,7 @@ func TestCommandlineArgList_Verify(t *testing.T) {
 			Type: "string",
 			Validator: PropertyValidator{
 				Class: "regexp",
-				Parameter: validator.Pattern{
+				Parameter: validator.validator{
 					Regex: `[a-z]+`,
 					Match: true,
 				},

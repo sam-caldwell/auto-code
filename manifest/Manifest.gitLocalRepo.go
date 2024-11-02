@@ -3,8 +3,9 @@ package manifest
 import (
 	"bytes"
 	"fmt"
-	"github.com/sam-caldwell/auto-code/manifest/gitrepo"
-	"github.com/sam-caldwell/auto-code/manifest/messages"
+	"github.com/sam-caldwell/auto-code/gitrepo"
+	"github.com/sam-caldwell/auto-code/messages"
+	"github.com/sam-caldwell/auto-code/words"
 	"os/exec"
 	"strings"
 )
@@ -23,7 +24,7 @@ func (manifest *Manifest) gitLocalRepo() (localRepo gitrepo.UrlString, err error
 	}
 
 	// Split the output by lines and extract the first line
-	lines := strings.Split(out.String(), LineEnding)
+	lines := strings.Split(out.String(), words.LineEnding)
 	if len(lines) == 0 || len(lines[0]) == 0 {
 		return localRepo, fmt.Errorf(messages.ErrMissingLocalGitRepoUrl) // No output
 	}

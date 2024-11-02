@@ -2,15 +2,15 @@ package gitrepo
 
 import (
 	"fmt"
-	"github.com/sam-caldwell/auto-code/manifest"
-	"github.com/sam-caldwell/auto-code/manifest/messages"
+	"github.com/sam-caldwell/auto-code/messages"
+	"github.com/sam-caldwell/auto-code/words"
 	"strings"
 )
 
 // Set - Set the local git repo url using the given string
 func (repo *UrlString) Set(value string) error {
 
-	if strings.TrimSpace(value) == manifest.EmptyString {
+	if strings.TrimSpace(value) == words.EmptyString {
 		return fmt.Errorf(messages.ErrMissingLocalGitRepoUrl)
 	}
 

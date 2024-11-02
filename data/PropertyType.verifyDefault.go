@@ -3,7 +3,8 @@ package data
 import (
 	"fmt"
 	"github.com/sam-caldwell/auto-code/manifest"
-	"github.com/sam-caldwell/auto-code/manifest/messages"
+	"github.com/sam-caldwell/auto-code/messages"
+	"github.com/sam-caldwell/auto-code/words"
 	"reflect"
 )
 
@@ -40,7 +41,7 @@ func (propertyType *PropertyType) verifyDefault(name *NameIdentifier, value *man
 		case "float64":
 			*value = float64(0)
 		case "string":
-			*value = manifest.EmptyString
+			*value = words.EmptyString
 		default:
 			*value = nil
 		}

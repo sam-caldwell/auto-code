@@ -2,7 +2,7 @@ package manifest
 
 import (
 	"fmt"
-	"github.com/sam-caldwell/auto-code/manifest/messages"
+	"github.com/sam-caldwell/auto-code/messages"
 )
 
 // Verify - verify the manifest.yaml definition of an environment variable processor as a data source.

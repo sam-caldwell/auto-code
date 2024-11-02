@@ -2,8 +2,9 @@ package manifest
 
 import (
 	"fmt"
-	"github.com/sam-caldwell/auto-code/manifest/gitrepo"
-	"github.com/sam-caldwell/auto-code/manifest/messages"
+	"github.com/sam-caldwell/auto-code/gitrepo"
+	"github.com/sam-caldwell/auto-code/manifest/words"
+	"github.com/sam-caldwell/auto-code/messages"
 )
 
 // UpdateGitRepo - merge the manifest.Global.git_repo and local git repo and ensure agreement
@@ -16,7 +17,7 @@ func (manifest *Manifest) UpdateGitRepo() (err error) {
 	var localRepo gitrepo.UrlString
 	if localRepo, err = manifest.gitLocalRepo(); err != nil {
 		// if the manifest does not have a git_repo url, we cannot go forward.
-		if manifest.Global.GitRepoUrl == EmptyString {
+		if manifest.Global.GitRepoUrl == words.EmptyString {
 			// the local git repo could not be loaded or was not defined.
 			return fmt.Errorf(messages.ErrMissingGitRepoUrl, err)
 		}
@@ -33,7 +34,7 @@ func (manifest *Manifest) UpdateGitRepo() (err error) {
 		}
 	} else {
 		// localRepo was loaded without error.
-		if manifest.Global.GitRepoUrl == EmptyString {
+		if manifest.Global.GitRepoUrl == words.EmptyString {
 			// the local git repo could not be loaded or was not defined.
 			return fmt.Errorf(messages.ErrMissingGitRepoUrl, err)
 		} else {

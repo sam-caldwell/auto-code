@@ -2,13 +2,14 @@ package manifest
 
 import (
 	"fmt"
-	"github.com/sam-caldwell/auto-code/manifest/messages"
-	validator "github.com/sam-caldwell/auto-code/manifest/validators"
+	"github.com/sam-caldwell/auto-code/data"
+	"github.com/sam-caldwell/auto-code/messages"
+	validator2 "github.com/sam-caldwell/auto-code/validators"
 	"regexp"
 )
 
 // Verify - Validate that the property validator object is appropriate for its associated property.
-func (v PropertyValidator) Verify(name *NameIdentifier, property *ConfigProperty) (err error) {
+func (v PropertyValidator) Verify(name *data.NameIdentifier, property *ConfigProperty) (err error) {
 
 	switch class := v.Class; class {
 	/*
@@ -16,30 +17,30 @@ func (v PropertyValidator) Verify(name *NameIdentifier, property *ConfigProperty
 	 */
 	case "minmax":
 		switch property.Validator.Parameter.(type) {
-		case validator.Int:
-			err = (property.Validator.Parameter.(validator.Int)).Verify()
-		case validator.Int8:
-			err = (property.Validator.Parameter.(validator.Int8)).Verify()
-		case validator.Int16:
-			err = (property.Validator.Parameter.(validator.Int16)).Verify()
-		case validator.Int32:
-			err = (property.Validator.Parameter.(validator.Int32)).Verify()
-		case validator.Int64:
-			err = (property.Validator.Parameter.(validator.Int64)).Verify()
-		case validator.Uint:
-			err = (property.Validator.Parameter.(validator.Uint)).Verify()
-		case validator.Uint8:
-			err = (property.Validator.Parameter.(validator.Uint8)).Verify()
-		case validator.Uint16:
-			err = (property.Validator.Parameter.(validator.Uint16)).Verify()
-		case validator.Uint32:
-			err = (property.Validator.Parameter.(validator.Uint32)).Verify()
-		case validator.Uint64:
-			err = (property.Validator.Parameter.(validator.Uint64)).Verify()
-		case validator.Float32:
-			err = (property.Validator.Parameter.(validator.Float32)).Verify()
-		case validator.Float64:
-			err = (property.Validator.Parameter.(validator.Float64)).Verify()
+		case validator2.Int:
+			err = (property.Validator.Parameter.(validator2.Int)).Verify()
+		case validator2.Int8:
+			err = (property.Validator.Parameter.(validator2.Int8)).Verify()
+		case validator2.Int16:
+			err = (property.Validator.Parameter.(validator2.Int16)).Verify()
+		case validator2.Int32:
+			err = (property.Validator.Parameter.(validator2.Int32)).Verify()
+		case validator2.Int64:
+			err = (property.Validator.Parameter.(validator2.Int64)).Verify()
+		case validator2.Uint:
+			err = (property.Validator.Parameter.(validator2.Uint)).Verify()
+		case validator2.Uint8:
+			err = (property.Validator.Parameter.(validator2.Uint8)).Verify()
+		case validator2.Uint16:
+			err = (property.Validator.Parameter.(validator2.Uint16)).Verify()
+		case validator2.Uint32:
+			err = (property.Validator.Parameter.(validator2.Uint32)).Verify()
+		case validator2.Uint64:
+			err = (property.Validator.Parameter.(validator2.Uint64)).Verify()
+		case validator2.Float32:
+			err = (property.Validator.Parameter.(validator2.Float32)).Verify()
+		case validator2.Float64:
+			err = (property.Validator.Parameter.(validator2.Float64)).Verify()
 		default:
 			err = fmt.Errorf(messages.ErrExpectedEmptyValidatorParameter, *name)
 		}

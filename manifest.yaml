@@ -71,7 +71,7 @@ config:
     - protocol:
         type: string
         validator:
-          class: pattern
+          class: regex
           parameter: `^http[s]{0,1}$`
         default: http
   #
