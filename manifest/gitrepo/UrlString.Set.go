@@ -2,6 +2,7 @@ package manifest
 
 import (
 	"fmt"
+	"github.com/sam-caldwell/auto-code/manifest/messages"
 	"strings"
 )
 
@@ -9,7 +10,7 @@ import (
 func (repo *GitRepoUrlString) Set(value string) error {
 
 	if strings.TrimSpace(value) == EmptyString {
-		return fmt.Errorf(errMissingLocalGitRepoUrl)
+		return fmt.Fatalf(messages.ErrMissingLocalGitRepoUrl)
 	}
 
 	*repo = GitRepoUrlString(value)
