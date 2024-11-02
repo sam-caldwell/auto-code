@@ -12,7 +12,7 @@ func TestUint8_Verify(t *testing.T) {
 			Max: 10,
 		}
 		if err := o.Verify(); err != nil {
-			t.Error(err)
+			t.Fatal(err)
 		}
 	})
 
@@ -22,7 +22,7 @@ func TestUint8_Verify(t *testing.T) {
 			Max: 10,
 		}
 		if err := o.Verify(); err == nil {
-			t.Error("expected error")
+			t.Fatal("expected error")
 		}
 	})
 
@@ -32,7 +32,7 @@ func TestUint8_Verify(t *testing.T) {
 			Max: 0,
 		}
 		if err := o.Verify(); err == nil {
-			t.Error("expected error")
+			t.Fatal("expected error")
 		}
 	})
 }
