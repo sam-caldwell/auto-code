@@ -6,13 +6,13 @@ import (
 )
 
 // Verify - Validate the command line properties definition.
-func (command *Commandline) Verify(properties *ConfigProperties) error {
+func (command *Commandline) Verify(_ *ConfigProperties) error {
 
 	command.Short = ShortArgumentString(strings.TrimSpace(string(command.Short)))
 
 	command.Long = LongArgumentString(strings.TrimSpace(string(command.Long)))
 
-	if string(command.Short) == "" && string(command.Long) == "" {
+	if (command.Short) == EmptyString && string(command.Long) == EmptyString {
 
 		return fmt.Errorf(errMissingCommandlineArgument)
 
