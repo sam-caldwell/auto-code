@@ -2,6 +2,7 @@ package manifest
 
 import (
 	"fmt"
+	"github.com/sam-caldwell/auto-code/manifest/messages"
 	"strings"
 )
 
@@ -14,7 +15,7 @@ func (command *Commandline) Verify(_ *ConfigProperties) error {
 
 	if (command.Short) == EmptyString && string(command.Long) == EmptyString {
 
-		return fmt.Errorf(errMissingCommandlineArgument)
+		return fmt.Fatalf(messages.ErrMissingCommandlineArgument)
 
 	}
 
