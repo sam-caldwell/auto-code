@@ -29,5 +29,5 @@ func (u *Int) Parse(v string) error {
 
 // Type - returns a type string
 func (u *Int) Type() string {
-	return strings.Split(reflect.TypeOf(*u).String(), ".")[1]
+	return strings.ToLower(strings.TrimSpace(strings.Split(reflect.TypeOf(*u).String(), ".")[1]))
 }

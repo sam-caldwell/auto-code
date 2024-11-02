@@ -47,7 +47,7 @@ func TestUint64(t *testing.T) {
 
 	t.Run("verify Type() method", func(t *testing.T) {
 		n := Uint64(0)
-		if typ := n.Type(); typ != "Uint64" {
+		if typ := n.Type(); typ != "uint64" {
 			t.Fatalf("Uint64 type mismatch. Got: '%d', Want: '%s'", n, typ)
 		}
 	})

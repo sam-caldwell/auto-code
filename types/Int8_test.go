@@ -44,7 +44,7 @@ func TestInt8(t *testing.T) {
 
 	t.Run("verify Type() method", func(t *testing.T) {
 		n := Int8(0)
-		if typ := n.Type(); typ != "Int8" {
+		if typ := n.Type(); typ != "int8" {
 			t.Fatalf("Int8 type mismatch. Got: '%d', Want: '%s'", n, typ)
 		}
 	})

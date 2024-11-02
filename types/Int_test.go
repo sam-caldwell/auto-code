@@ -47,7 +47,7 @@ func TestInt(t *testing.T) {
 
 	t.Run("verify Type() method", func(t *testing.T) {
 		n := Int(0)
-		if typ := n.Type(); typ != "Int" {
+		if typ := n.Type(); typ != "int" {
 			t.Fatalf("Int type mismatch. Got: '%d', Want: '%s'", n, typ)
 		}
 	})

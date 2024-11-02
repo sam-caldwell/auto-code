@@ -47,7 +47,7 @@ func TestInt16(t *testing.T) {
 
 	t.Run("verify Type() method", func(t *testing.T) {
 		n := Int16(0)
-		if typ := n.Type(); typ != "Int16" {
+		if typ := n.Type(); typ != "int16" {
 			t.Fatalf("Int16 type mismatch. Got: '%d', Want: '%s'", n, typ)
 		}
 	})

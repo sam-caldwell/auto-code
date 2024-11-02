@@ -47,7 +47,7 @@ func TestInt32(t *testing.T) {
 
 	t.Run("verify Type() method", func(t *testing.T) {
 		n := Int32(0)
-		if typ := n.Type(); typ != "Int32" {
+		if typ := n.Type(); typ != "int32" {
 			t.Fatalf("Int32 type mismatch. Got: '%d', Want: '%s'", n, typ)
 		}
 	})
