@@ -2,6 +2,8 @@ package manifest
 
 import (
 	"fmt"
+	"github.com/sam-caldwell/auto-code/manifest/messages"
+	"github.com/sam-caldwell/auto-code/manifest/patterns"
 	"regexp"
 )
 
@@ -14,12 +16,12 @@ func (s SourceList) Verify(_ *ConfigProperties) error {
 
 	for _, source := range s {
 
-		if pattern := regexp.MustCompile(configSourcesPattern); pattern.MatchString(source) {
-			return fmt.Errorf(errInvalidConfigSource, configSourcesPattern)
+		if pattern := regexp.MustCompile(patterns.ConfigSourcesPattern); pattern.MatchString(source) {
+			return fmt.Errorf(messages.ErrInvalidConfigSource, patterns.ConfigSourcesPattern)
 		}
 
 		if _, ok := uniqueSources[source]; ok {
-			return fmt.Errorf(errDuplicateConfigSource)
+			return fmt.Errorf(messages.ErrDuplicateConfigSource)
 		}
 
 		uniqueSources[source] = struct{}{}
@@ -27,7 +29,7 @@ func (s SourceList) Verify(_ *ConfigProperties) error {
 	}
 
 	if numberOfSources := len(uniqueSources); numberOfSources < 1 {
-		return fmt.Errorf(errMissingConfigSource)
+		return fmt.Errorf(messages.ErrMissingConfigSource)
 	}
 
 	return nil

@@ -1,4 +1,4 @@
 package manifest
 
-// CommandlineArgList - A list of command line descriptor objects.
-type CommandlineArgList []Commandline
+// CommandlineArgList - A map of command line descriptor objects.
+type CommandlineArgList map[NameIdentifier]Commandline

@@ -15,7 +15,7 @@ func (command *Commandline) Verify(_ *ConfigProperties) error {
 
 	if (command.Short) == EmptyString && string(command.Long) == EmptyString {
 
-		return fmt.Fatalf(messages.ErrMissingCommandlineArgument)
+		return fmt.Errorf(messages.ErrMissingCommandlineArgument)
 
 	}
 

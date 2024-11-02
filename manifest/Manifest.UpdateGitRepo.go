@@ -2,6 +2,8 @@ package manifest
 
 import (
 	"fmt"
+	"github.com/sam-caldwell/auto-code/manifest/gitrepo"
+	"github.com/sam-caldwell/auto-code/manifest/messages"
 )
 
 // UpdateGitRepo - merge the manifest.Global.git_repo and local git repo and ensure agreement
@@ -11,12 +13,12 @@ import (
 func (manifest *Manifest) UpdateGitRepo() (err error) {
 
 	// get the local git repo url
-	var localRepo GitRepoUrlString
+	var localRepo gitrepo.UrlString
 	if localRepo, err = manifest.gitLocalRepo(); err != nil {
 		// if the manifest does not have a git_repo url, we cannot go forward.
 		if manifest.Global.GitRepoUrl == EmptyString {
 			// the local git repo could not be loaded or was not defined.
-			return fmt.Errorf(errMissingGitRepoUrl, err)
+			return fmt.Errorf(messages.ErrMissingGitRepoUrl, err)
 		}
 
 		// if the manifest has a git_repo url, we can set our local repo to that value.
@@ -33,7 +35,7 @@ func (manifest *Manifest) UpdateGitRepo() (err error) {
 		// localRepo was loaded without error.
 		if manifest.Global.GitRepoUrl == EmptyString {
 			// the local git repo could not be loaded or was not defined.
-			return fmt.Errorf(errMissingGitRepoUrl, err)
+			return fmt.Errorf(messages.ErrMissingGitRepoUrl, err)
 		} else {
 			// we had no manifest.Global.git_repo in the manifest, but we had a localRepo
 			// so we will set our manifest version to the localRepo value.
@@ -43,7 +45,7 @@ func (manifest *Manifest) UpdateGitRepo() (err error) {
 
 	// Check final agreement to ensure local and manifest git repo are the same.
 	if localRepo != manifest.Global.GitRepoUrl {
-		return fmt.Errorf(errGitRepoUrlMismatch)
+		return fmt.Errorf(messages.ErrGitRepoUrlMismatch)
 	}
 
 	return err

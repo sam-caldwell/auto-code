@@ -5,6 +5,11 @@ import (
 )
 
 func TestCommandlineArgList(t *testing.T) {
-	arg := CommandlineArgList{}
-	arg = append(arg, Commandline{})
+	_ = CommandlineArgList{
+		"foobar": Commandline{
+			Required: true,
+			Short:    "-f",
+			Long:     "--foobar",
+		},
+	}
 }

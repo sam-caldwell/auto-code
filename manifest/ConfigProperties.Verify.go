@@ -2,6 +2,7 @@ package manifest
 
 import (
 	"fmt"
+	"github.com/sam-caldwell/auto-code/manifest/messages"
 )
 
 // Verify - verify that config.properties is properly formatted
@@ -9,7 +10,7 @@ func (properties ConfigProperties) Verify(_ *ConfigProperties) error {
 
 	if len(properties) < 1 {
 
-		return fmt.Errorf(errMissingConfigProperties)
+		return fmt.Errorf(messages.ErrMissingConfigProperties)
 
 	}
 

@@ -1,6 +1,9 @@
 package manifest
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/sam-caldwell/auto-code/manifest/messages"
+)
 
 // Verify - verify the manifest.yaml definition of an environment variable processor as a data source.
 //
@@ -28,7 +31,7 @@ func (environment *ConfigEnvironment) Verify(properties *ConfigProperties) error
 		}
 
 		if _, ok := (*properties)[key]; !ok {
-			return fmt.Errorf(errUnknownProperty, key)
+			return fmt.Errorf(messages.ErrUnknownProperty, key)
 		}
 	}
 

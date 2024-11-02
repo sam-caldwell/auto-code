@@ -2,16 +2,18 @@ package manifest
 
 import (
 	"fmt"
+	"github.com/sam-caldwell/auto-code/manifest/messages"
+	"github.com/sam-caldwell/auto-code/manifest/patterns"
 	"regexp"
 )
 
 // verifyGlobalLicense - verify global.license from manifest.yaml
 func (manifest *Manifest) verifyGlobalLicense() error {
 
-	if pattern := regexp.MustCompile(globalLicensePattern); pattern.MatchString(string(manifest.Global.Name)) {
+	if pattern := regexp.MustCompile(patterns.LicensePattern); pattern.MatchString(string(manifest.Global.Name)) {
 		return nil
 	}
 
-	return fmt.Errorf(errInvalidLicensePattern, globalLicensePattern)
+	return fmt.Errorf(messages.ErrInvalidLicensePattern, patterns.LicensePattern)
 
 }

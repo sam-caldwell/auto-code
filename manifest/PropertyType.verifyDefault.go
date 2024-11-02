@@ -2,6 +2,7 @@ package manifest
 
 import (
 	"fmt"
+	"github.com/sam-caldwell/auto-code/manifest/messages"
 	"reflect"
 )
 
@@ -48,7 +49,7 @@ func (propertyType *PropertyType) verifyDefault(name *NameIdentifier, value *Def
 	// if the default value is provided, make sure the type matches the property.type
 	if reflect.TypeOf(*value).String() != string(*propertyType) {
 
-		return fmt.Errorf(errDefaultValueTypeMismatch, *name)
+		return fmt.Errorf(messages.ErrDefaultValueTypeMismatch, *name)
 
 	}
 

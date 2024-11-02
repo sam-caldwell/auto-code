@@ -2,6 +2,7 @@ package manifest
 
 import (
 	"fmt"
+	"github.com/sam-caldwell/auto-code/manifest/messages"
 	"strings"
 )
 
@@ -14,6 +15,6 @@ func (text NonEmptyText) Verify() error {
 
 	}
 
-	return fmt.Errorf(errInvalidNonEmptyText)
+	return fmt.Errorf(messages.ErrInvalidNonEmptyText)
 
 }

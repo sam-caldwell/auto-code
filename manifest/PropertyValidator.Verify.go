@@ -2,71 +2,73 @@ package manifest
 
 import (
 	"fmt"
+	"github.com/sam-caldwell/auto-code/manifest/messages"
+	validator "github.com/sam-caldwell/auto-code/manifest/validators"
 	"regexp"
 )
 
 // Verify - Validate that the property validator object is appropriate for its associated property.
-func (validator PropertyValidator) Verify(name *NameIdentifier, property *ConfigProperty) (err error) {
+func (v PropertyValidator) Verify(name *NameIdentifier, property *ConfigProperty) (err error) {
 
-	switch class := validator.Class; class {
+	switch class := v.Class; class {
 	/*
 	 * Min-Max validators are expected to be numeric property types.
 	 */
 	case "minmax":
 		switch property.Validator.Parameter.(type) {
-		case ParameterMinMax[int]:
-			err = (property.Validator.Parameter.(ParameterMinMax[int])).Verify()
-		case ParameterMinMax[int8]:
-			err = (property.Validator.Parameter.(ParameterMinMax[int8])).Verify()
-		case ParameterMinMax[int16]:
-			err = (property.Validator.Parameter.(ParameterMinMax[int16])).Verify()
-		case ParameterMinMax[int32]:
-			err = (property.Validator.Parameter.(ParameterMinMax[int32])).Verify()
-		case ParameterMinMax[int64]:
-			err = (property.Validator.Parameter.(ParameterMinMax[int64])).Verify()
-		case ParameterMinMax[uint]:
-			err = (property.Validator.Parameter.(ParameterMinMax[uint])).Verify()
-		case ParameterMinMax[uint8]:
-			err = (property.Validator.Parameter.(ParameterMinMax[uint8])).Verify()
-		case ParameterMinMax[uint16]:
-			err = (property.Validator.Parameter.(ParameterMinMax[uint16])).Verify()
-		case ParameterMinMax[uint32]:
-			err = (property.Validator.Parameter.(ParameterMinMax[uint32])).Verify()
-		case ParameterMinMax[uint64]:
-			err = (property.Validator.Parameter.(ParameterMinMax[uint64])).Verify()
-		case ParameterMinMax[float32]:
-			err = (property.Validator.Parameter.(ParameterMinMax[float32])).Verify()
-		case ParameterMinMax[float64]:
-			err = (property.Validator.Parameter.(ParameterMinMax[float64])).Verify()
+		case validator.Int:
+			err = (property.Validator.Parameter.(validator.Int)).Verify()
+		case validator.Int8:
+			err = (property.Validator.Parameter.(validator.Int8)).Verify()
+		case validator.Int16:
+			err = (property.Validator.Parameter.(validator.Int16)).Verify()
+		case validator.Int32:
+			err = (property.Validator.Parameter.(validator.Int32)).Verify()
+		case validator.Int64:
+			err = (property.Validator.Parameter.(validator.Int64)).Verify()
+		case validator.Uint:
+			err = (property.Validator.Parameter.(validator.Uint)).Verify()
+		case validator.Uint8:
+			err = (property.Validator.Parameter.(validator.Uint8)).Verify()
+		case validator.Uint16:
+			err = (property.Validator.Parameter.(validator.Uint16)).Verify()
+		case validator.Uint32:
+			err = (property.Validator.Parameter.(validator.Uint32)).Verify()
+		case validator.Uint64:
+			err = (property.Validator.Parameter.(validator.Uint64)).Verify()
+		case validator.Float32:
+			err = (property.Validator.Parameter.(validator.Float32)).Verify()
+		case validator.Float64:
+			err = (property.Validator.Parameter.(validator.Float64)).Verify()
 		default:
-			err = fmt.Errorf(errExpectedEmptyValidatorParameter, *name)
+			err = fmt.Errorf(messages.ErrExpectedEmptyValidatorParameter, *name)
 		}
 	/*
 	 * null validators have no validation.
 	 */
 	case "null":
 		if property.Validator.Parameter != nil {
-			err = fmt.Errorf(errExpectedEmptyValidatorParameter, *name)
+			err = fmt.Errorf(messages.ErrExpectedEmptyValidatorParameter, *name)
 		}
 	/*
 	 * regular expressions expect a string property type.
 	 */
 	case "regex":
-		switch validator.Parameter.(type) {
+		switch v.Parameter.(type) {
 		case string:
-			regularExpression := validator.Parameter.(string)
+			regularExpression := v.Parameter.(string)
 
 			if _, err = regexp.Compile(regularExpression); err != nil {
-				err = fmt.Errorf(errInvalidValidatorRegex, *name, regularExpression, err)
+				err = fmt.Errorf(messages.ErrInvalidValidatorRegex, *name, regularExpression, err)
 			}
 		default:
-			err = fmt.Errorf(errExpectedRegexString, *name)
+			err = fmt.Errorf(messages.ErrExpectedRegexString, *name)
 		}
 	/*
 	 * unsupported/unknown validator type
 	 */
 	default:
-		err = fmt.Errorf(errUnsupportedPropertyValidator, *name)
+		err = fmt.Errorf(messages.ErrUnsupportedPropertyValidator, *name)
 	}
 	return err
 }

@@ -1,5 +1,7 @@
 package manifest
 
+import "github.com/sam-caldwell/auto-code/manifest/gitrepo"
+
 // GlobalSection - Manifest Yaml global parameters section
 type GlobalSection struct {
 	//
@@ -28,5 +30,5 @@ type GlobalSection struct {
 	Version SemanticVersionString `yaml:"version"`
 	//
 	// GitRepoUrl - Represents the project code repo
-	GitRepoUrl GitRepoUrlString `yaml:"git_repo,omitempty"`
+	GitRepoUrl gitrepo.UrlString `yaml:"git_repo,omitempty"`
 }

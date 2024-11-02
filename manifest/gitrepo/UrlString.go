@@ -1,4 +1,4 @@
-package manifest
+package gitrepo
 
-// GitRepoUrlString - a string representing a git repo url
-type GitRepoUrlString string
+// UrlString - a string representing a git repo url
+type UrlString string
