@@ -7,7 +7,7 @@ package validator
 // the Verify() method.
 //
 // A YAML Manifest Validator Parameter object is an implementation of the
-// ParameterInterface type.
+// Interface type.
 type Float32 struct {
 	Min float32 `yaml:"min"`
 	Max float32 `yaml:"max"`

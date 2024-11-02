@@ -5,7 +5,7 @@ package validator
 // When parsing and processing the YAML Manifest, this object will validate the YAML structure, representing cases
 // where there is no validator.
 //
-// A YAML Manifest Validator Parameter object is an implementation of the ParameterInterface type.
+// A YAML Manifest Validator Parameter object is an implementation of the Interface type.
 type Null struct {
 	//
 	// No properties, intentionally.

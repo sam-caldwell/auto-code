@@ -6,7 +6,7 @@ package validator
 // verify the manifest file's minimum and maximum threshold values using
 // the Verify() method.
 //
-// A YAML Manifest Validator Parameter object is an implementation of the ParameterInterface type.
+// A YAML Manifest Validator Parameter object is an implementation of the Interface type.
 type Int16 struct {
 	Min int16 `yaml:"min"`
 	Max int16 `yaml:"max"`
