@@ -1,4 +1,4 @@
-package manifest
+package messages
 
 //ToDo: add build configs so this only builds if english is specified to allow language portability
 
@@ -6,6 +6,7 @@ const (
 	errDefaultValueTypeMismatch        = `config.property.Type must match config.property.default (property:%s)`
 	errDuplicateConfigSource           = `config.sources cannot contain duplicate elements`
 	errEmptyGitRepoUrl                 = `empty git repo url`
+	ErrEmptyRegularExpression          = `empty regular expression is not allowed`
 	errExpectedEmptyValidatorParameter = `config.properties[].validator should be nil if class is null (property:%s)`
 	errExpectedRegexString             = `expected regular expression string (property: %s)`
 	errGitInitFailed                   = `'git init' failed: %v`
