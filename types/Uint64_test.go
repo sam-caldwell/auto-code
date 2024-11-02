@@ -44,4 +44,11 @@ func TestUint64(t *testing.T) {
 			t.Fatalf("Parse error: '%v' (lhs: %d, rhs: %d, stringValue: '%s')", err, lhs, rhs, stringValue)
 		}
 	})
+
+	t.Run("verify Type() method", func(t *testing.T) {
+		n := Uint64(0)
+		if typ := n.Type(); typ != "Uint64" {
+			t.Fatalf("Uint64 type mismatch. Got: '%d', Want: '%s'", n, typ)
+		}
+	})
 }

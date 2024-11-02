@@ -41,4 +41,11 @@ func TestUint8(t *testing.T) {
 			t.Fatalf("mismatch (lhs: %d, rhs: %d)", lhs, rhs)
 		}
 	})
+
+	t.Run("verify Type() method", func(t *testing.T) {
+		n := Uint8(0)
+		if typ := n.Type(); typ != "Uint8" {
+			t.Fatalf("Uint8 type mismatch. Got: '%d', Want: '%s'", n, typ)
+		}
+	})
 }

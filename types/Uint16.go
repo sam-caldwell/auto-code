@@ -2,7 +2,9 @@ package types
 
 import (
 	"fmt"
+	"reflect"
 	"strconv"
+	"strings"
 	"unsafe"
 )
 
@@ -23,4 +25,9 @@ func (u *Uint16) Parse(v string) error {
 	}
 	*u = Uint16(n)
 	return nil
+}
+
+// Type - returns a type string
+func (u *Uint16) Type() string {
+	return strings.Split(reflect.TypeOf(*u).String(), ".")[1]
 }

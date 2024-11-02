@@ -44,4 +44,11 @@ func TestUint16(t *testing.T) {
 			}
 		}
 	})
+
+	t.Run("verify Type() method", func(t *testing.T) {
+		n := Uint16(0)
+		if typ := n.Type(); typ != "Uint16" {
+			t.Fatalf("Uint16 type mismatch. Got: '%d', Want: '%s'", n, typ)
+		}
+	})
 }
