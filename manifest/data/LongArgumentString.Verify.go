@@ -1,7 +1,8 @@
-package manifest
+package data
 
 import (
 	"fmt"
+	"github.com/sam-caldwell/auto-code/manifest"
 	"github.com/sam-caldwell/auto-code/manifest/messages"
 	"github.com/sam-caldwell/auto-code/manifest/patterns"
 	"regexp"
@@ -10,7 +11,7 @@ import (
 // Verify - validate the long argument string
 func (arg *LongArgumentString) Verify() error {
 
-	if *arg == EmptyString {
+	if *arg == manifest.EmptyString {
 		return nil
 	}
 

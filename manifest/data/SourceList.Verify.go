@@ -1,7 +1,8 @@
-package manifest
+package data
 
 import (
 	"fmt"
+	"github.com/sam-caldwell/auto-code/manifest"
 	"github.com/sam-caldwell/auto-code/manifest/messages"
 	"github.com/sam-caldwell/auto-code/manifest/patterns"
 	"regexp"
@@ -10,7 +11,7 @@ import (
 // Verify - Verify that the source list is correct (non-empty, containing valid values)
 //
 // WARNING: At no point can the SourceList order be altered.  That would break merge ordering.
-func (s SourceList) Verify(_ *ConfigProperties) error {
+func (s SourceList) Verify(_ *manifest.ConfigProperties) error {
 
 	uniqueSources := map[string]struct{}{}
 

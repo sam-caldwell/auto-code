@@ -1,7 +1,8 @@
-package manifest
+package data
 
 import (
 	"fmt"
+	"github.com/sam-caldwell/auto-code/manifest"
 	"github.com/sam-caldwell/auto-code/manifest/messages"
 	"github.com/sam-caldwell/auto-code/manifest/patterns"
 	"strings"
@@ -10,7 +11,7 @@ import (
 // Verify - Validate the PropertyType and ensure it is lowercase and has no leading or trailing whitespace.
 func (propertyType *PropertyType) Verify(name *NameIdentifier) error {
 
-	for _, pType := range strings.Split(patterns.ConfigPropertyTypes, Comma) {
+	for _, pType := range strings.Split(patterns.ConfigPropertyTypes, manifest.Comma) {
 
 		// strip the property type and make sure it is lower case.
 		*propertyType = PropertyType(strings.ToLower(string(*propertyType)))

@@ -1,4 +1,4 @@
-package manifest
+package data
 
 // NameIdentifier - describes an alphanumeric name containing _ or . but no whitespace
 //

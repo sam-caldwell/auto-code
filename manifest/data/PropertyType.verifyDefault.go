@@ -1,13 +1,14 @@
-package manifest
+package data
 
 import (
 	"fmt"
+	"github.com/sam-caldwell/auto-code/manifest"
 	"github.com/sam-caldwell/auto-code/manifest/messages"
 	"reflect"
 )
 
 // verifyDefault - verify that the ConfigProperty.DefaultValue is correct or set its empty state.
-func (propertyType *PropertyType) verifyDefault(name *NameIdentifier, value *DefaultValueType) error {
+func (propertyType *PropertyType) verifyDefault(name *NameIdentifier, value *manifest.DefaultValueType) error {
 
 	// If there is no default value we will create the empty-value default for the given type.
 	if *value == nil {
@@ -39,7 +40,7 @@ func (propertyType *PropertyType) verifyDefault(name *NameIdentifier, value *Def
 		case "float64":
 			*value = float64(0)
 		case "string":
-			*value = EmptyString
+			*value = manifest.EmptyString
 		default:
 			*value = nil
 		}
