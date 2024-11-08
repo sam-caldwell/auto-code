@@ -9,6 +9,8 @@ const (
 	ErrEmptyRegularExpression          = `empty regular expression is not allowed`
 	ErrExpectedEmptyValidatorParameter = `config.properties[].validator should be nil if class is null (property:%s)`
 	ErrExpectedRegexString             = `expected regular expression string (property: %s)`
+	ErrFailedToGenerateCode            = `Failed to generate code: '%s'\n`
+	ErrFailedToLoadManifest            = `Failed to load manifest: '%s'\n`
 	ErrGitInitFailed                   = `'git init' failed: %v`
 	ErrGitRemoteAddFailed              = `'git remote add' failed: %v`
 	ErrInvalidConfigSource             = `unsupported or unknown config.source value (expect: %s)`
@@ -29,12 +31,14 @@ const (
 	ErrInvalidValidatorRegex           = `invalid validator regular expression (property: %s, regex: %s, err: %v)`
 	ErrInvalidVersionPattern           = `version must match pattern (%s)`
 	ErrGitRepoUrlMismatch              = `git repo url mismatch (local != remote)`
+	ErrManifestFileNotFound            = `manifest file (%s) not found\n`
 	ErrMissingCommandlineArgument      = `missing argument: must have either short, long or both argument type`
 	ErrMissingConfigProperties         = `config.properties must have at least one element`
 	ErrMissingConfigSource             = `config.sources must have at least one element`
 	ErrMissingLocalGitRepoUrl          = `missing GitRepoUrl (git remote -v)`
 	ErrMissingGitRepoUrl               = `missing local repo and manifest (global.git_repo): '%v'`
 	ErrGitRemoteUrlFailed              = `'git remote -v' failed: 'Error:%v'`
+	ErrTargetDirectoryExists           = `target directory exists.  We cannot overwrite (%s)`
 	ErrTypeMismatchMin                 = `type mismatch(Min)`
 	ErrTypeMismatchMax                 = `type mismatch(Max)`
 	ErrUnknownProperty                 = `unknown property (%s)`
