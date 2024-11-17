@@ -1,0 +1,12 @@
+---
+name: deleteGroupMemberships
+inputs:
+  - userId:
+      type: uuid
+  - groupId:
+      type: uuid
+output:
+  type: object
+  value:
+    count: uint
+    $ref: 'auto-code.d/dataContract/schema/functions/common/pagination.yaml'

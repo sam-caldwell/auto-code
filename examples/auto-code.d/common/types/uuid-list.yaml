@@ -1,0 +1,6 @@
+---
+value:
+  description: a list of uuidV4 objects
+  type: array
+  value:
+    type: uuid

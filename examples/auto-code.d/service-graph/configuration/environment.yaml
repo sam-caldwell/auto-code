@@ -1,0 +1,8 @@
+---
+# Define one or more environment variables and mapping to a parameter
+- name: API_PROTOCOL
+  parameter: api.protocol
+- name: API_ADDRESS
+  parameter: api.address
+- name: API_PORT
+  parameter: api.port

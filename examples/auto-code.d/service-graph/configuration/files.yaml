@@ -1,0 +1,24 @@
+---
+# Define one or more configuration file source.  This defines the configuration
+# path (dot-delimited fully-qualified parameter name) and maps it to a parameter.
+- name: config.yaml
+  format: yaml
+  schema:
+    - path: api.protocol
+      parameter: api.protocol
+    - path: api.address
+      parameter: api.address
+    - path: api.port
+      parameter: api.port
+    - path: frontend.protocol
+      parameter: frontend.protocol
+    - path: frontend.address
+      parameter: frontend.address
+    - path: frontend.port
+      parameter: frontend.port
+    - path: database.protocol
+      parameter: database.protocol
+    - path: database.address
+      parameter: database.address
+    - path: database.port
+      parameter: database.port

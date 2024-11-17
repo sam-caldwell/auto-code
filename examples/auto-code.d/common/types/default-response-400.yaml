@@ -1,0 +1,9 @@
+---
+description: Bad Request
+content-type: application/json
+body:
+  type: object
+  properties:
+    token:
+      type: string
+      default: "bad request"

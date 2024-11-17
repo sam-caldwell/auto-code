@@ -1,0 +1,37 @@
+---
+# define a http healthcheck endpoint
+#
+# method:
+#   summary
+#   version - defines the api version
+version: v1
+path: /healthcheck
+method: get
+description: Health check endpoint returns/expects 'ok' if api server is healthy
+# apply all decorators (in order of precedence)
+decorators:
+  - blockOFAC
+  - blockTorOrVpn
+  - publicRateLimit
+  - anonymous
+# This defines the payload function the endpoint will call.  It's expected parameters
+# are language dependent but standardized for all endpoint payload functions.  For example,
+# golang will generate something like--
+#
+#   func apiV1healthCheck (w http.ResponseWriter, r *http.Request){
+#       response := map[string]string{"status": "ok"}
+#       w.Header().Set("Content-Type", "application/json")
+#       json.NewEncoder(w).Encode(response)
+#   }
+#
+# based on the content-type body specified
+#
+# The developer may then customize the apiV1healthCheck() function post generation.
+function: apiV1healthCheck
+responses:
+  '200':
+    description: API is healthy.
+    $ref: './auto-code.d/common/types/default-response-200.yaml'
+  '500':
+    description: API is unhealthy
+    $ref: './auto-code.d/common/types/default-response-500.yaml'

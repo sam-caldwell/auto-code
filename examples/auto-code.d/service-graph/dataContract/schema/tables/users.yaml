@@ -1,0 +1,54 @@
+---
+# Define a user profile table.
+# ToDo: add validation logic to each field.
+users:
+  columns:
+    - name: id
+      type: uuid
+      nullable: false
+      default: "generateUuid()"
+    - name: firstName
+      type: varchar(64)
+      nullable: false
+      constraints:
+        - check:
+          regex:
+            $ref: './auto-code.d/common/types/name.yaml'
+    - name: lastName
+      type: varchar(64)
+      nullable: false
+      constraints:
+        - check:
+          regex:
+            $ref: './auto-code.d/common/types/name.yaml'
+    - name: email
+      type: varchar(255)
+      nullable: false
+      constraints:
+        - check:
+          regex:
+            $ref: './auto-code.d/common/types/email.yaml'
+    - name: deleted
+      type: boolean
+      nullable: false
+      default: "false"
+  indexes:
+    - name: primaryKey
+      type: primaryKey
+      columns:
+        - id
+    - name: ndxName
+      type: index
+      options:
+        algorithm: btree
+        sort: asc
+      columns:
+        - firstName
+        - lastName
+    - name: uniqueEmail
+      type: unique
+      options:
+        algorithm: btree
+        sort: asc
+      columns:
+        - email

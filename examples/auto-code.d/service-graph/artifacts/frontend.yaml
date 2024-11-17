@@ -1,0 +1,17 @@
+---
+description: Frontend UI service
+type: service
+dependencies:
+  - api
+options:
+  language: typescript-react
+  sources: ./src/frontend
+  url: ${frontend.protocol}://${environment}.${frontend.address}:${frontend.port}
+  container:
+    name: frontend
+    cpuArch: x86_64
+    image: service-graph-ui:local
+    dockerfile: docker.d/service-graph-ui/Dockerfile
+    options:
+      publish:
+        - ${frontend.port}

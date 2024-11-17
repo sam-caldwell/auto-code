@@ -1,0 +1,5 @@
+---
+value:
+  description: enable/disable rate limits feature
+  type: boolean
+  default: false

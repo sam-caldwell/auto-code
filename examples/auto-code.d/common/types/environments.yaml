@@ -1,0 +1,6 @@
+---
+value:
+  description: build target environment
+  type: string
+  default: "local"
+  regex: "^(local|dev|stg|prod)$"

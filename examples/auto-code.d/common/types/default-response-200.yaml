@@ -1,0 +1,9 @@
+---
+description: Success
+content-type: application/json
+body:
+  type: object
+  value:
+    token:
+      type: string
+      default: "ok"

@@ -1,0 +1,27 @@
+---
+# Define the parameters the application can use to reference the resolved configuration
+# These parameters are loaded with information by the files, environment and command-line
+# sections (if used).  But the parameters defines the parameter, its type, default value and
+# validation rules.
+- name: environment
+  $ref: './auto-code.d/common/types/environments.yaml'
+- name: rateLimit.enable
+  $ref: './auto-code.d/common/types/rateLimit.enable.default.yaml'
+- name: api.protocol
+  $ref: './auto-code.d/common/types/protocols-http.yaml'
+- name: api.address
+  $ref: './auto-code.d/common/types/listen-address-any.yaml'
+- name: api.port
+  default: networkPort(8080)
+- name: frontend.protocol
+  $ref: './auto-code.d/common/types/protocols-http.yaml'
+- name: frontend.address
+  $ref: './auto-code.d/common/types/listen-address-any.yaml'
+- name: frontend.port
+  default: networkPort(8000)
+- name: database.protocol
+  $ref: './auto-code.d/common/types/protocols-postgresql.yaml'
+- name: database.address
+  $ref: './auto-code.d/common/types/listen-address-any.yaml'
+- name: database.port
+  default: networkPort(5432)

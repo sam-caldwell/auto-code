@@ -1,0 +1,10 @@
+---
+name: createGroupMemberships
+inputs:
+  - userId:
+      type: uuid
+  - groupId:
+      type: uuid
+output:
+  - numberCreated:
+    type: uint

@@ -1,0 +1,6 @@
+---
+# Pagination fields for function inputs / outputs
+offset:
+  type: uint
+limit:
+  type: uint

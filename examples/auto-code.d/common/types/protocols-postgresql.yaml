@@ -1,0 +1,5 @@
+---
+value:
+  description: database listen protocol
+  type: enum(postgresql)
+  default: "postgresql"

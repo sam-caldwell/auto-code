@@ -1,0 +1,22 @@
+---
+version: v1
+path: /identity/auth
+method: delete
+description: Logout a user (deletes any current session)
+decorators:
+  - authorizeOnlyUSA
+  - blockTorOrVpn
+  - blockOFAC
+  - devicePosture
+  - publicRateLimit
+  - authenticated
+function: apiV1AuthLogout
+responses:
+  '200':
+    $ref: './auto-code.d/common/types/default-response-200.yaml'
+  '400':
+    $ref: './auto-code.d/common/types/default-response-400.yaml'
+  '401':
+    $ref: './auto-code.d/common/types/default-response-401.yaml'
+  '500':
+    $ref: './auto-code.d/common/types/default-response-500.yaml'

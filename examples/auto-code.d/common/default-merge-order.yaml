@@ -1,0 +1,5 @@
+---
+# Define the parameter order of precedence used to merge different sources.
+- files
+- environment
+- command-line

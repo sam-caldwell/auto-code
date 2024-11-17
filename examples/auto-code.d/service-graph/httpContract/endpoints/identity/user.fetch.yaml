@@ -1,0 +1,85 @@
+---
+version: v1
+path: /identity/user
+method: get
+description: Fetch user profile information
+decorators:
+  - authorizeOnlyUSA
+  - blockTorOrVpn
+  - blockOFAC
+  - devicePosture
+  - publicRateLimit
+  - authenticated
+  - authorized('user-read')
+  - sessionLifecycle3600sec
+function: apiV1UserRegister
+requestBody:
+  required: true
+  content-type: application/json
+  body:
+    type: object
+    value:
+      $ref: './auto-code.d/common/http-query-pagination.yaml'
+      fields:
+        - userId
+        - firstname
+        - lastname
+        - email
+        - groupIds
+      query:
+        required: false # if not specified, it should match all
+        type: array
+        value:
+          - type: Query
+            value:
+              field:
+                type: string
+                value: firstName
+              operator: And
+          - type: Query
+            value:
+              field:
+                type: string
+                value: lastName
+              operator: And
+          - type: Query
+            value:
+              field:
+                type: string
+                value: groupId
+              operator: And
+responses:
+  '200':
+    description: Success
+    content-type: application/json
+    body:
+      type: object
+      value:
+        count:
+          type: uint
+        offset:
+          type: uint
+        limit:
+          type: uint
+        fields:
+          type: array(object)
+          value:
+            userId:
+              type: uuid
+            firstname:
+              type: string
+            lastname:
+              type: string
+            email:
+              type: string
+            groupIds:
+              type: array(uuid)
+        token:
+          type: string
+          default: "ok"
+  '400':
+    $ref: './auto-code.d/common/types/default-response-400.yaml'
+  '401':
+    $ref: './auto-code.d/common/types/default-response-401.yaml'
+  '500':
+    $ref: './auto-code.d/common/types/default-response-500.yaml'

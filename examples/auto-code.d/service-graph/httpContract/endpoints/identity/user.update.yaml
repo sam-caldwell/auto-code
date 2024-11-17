@@ -1,0 +1,28 @@
+---
+version: v1
+path: /identity/user
+method: post
+description: Update the user profile
+decorators:
+  - authorizeOnlyUSA
+  - blockTorOrVpn
+  - blockOFAC
+  - devicePosture
+  - publicRateLimit
+  - authenticated
+  - sessionLifecycle3600sec
+function: apiV1UserRegister
+requestBody:
+  required: true
+  content-type: application/json
+  body:
+    $ref: './auto-code.d/common/types/user-profile.yaml'
+responses:
+  '200':
+    $ref: './auto-code.d/common/types/default-response-200.yaml'
+  '400':
+    $ref: './auto-code.d/common/types/default-response-400.yaml'
+  '401':
+    $ref: './auto-code.d/common/types/default-response-401.yaml'
+  '500':
+    $ref: './auto-code.d/common/types/default-response-500.yaml'

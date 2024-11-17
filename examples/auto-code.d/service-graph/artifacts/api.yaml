@@ -1,0 +1,29 @@
+---
+# This section describes an API service.
+#
+# Notes:
+#  - type={service,external,binary}
+#      - if type == service, a container will be built.
+#      - if type == external, the URL and dependency order will be used.
+#      - if type == binary, additional future parameters will be required for target OS, ARCH.
+#  - language is required, unless type==external.
+#     - currently language={golang, typescript-react}
+#     - terraform is implied for configuring some parts of the solution
+#     - docker / minikube is implied for configuring containers, etc.
+#  - dependency is optional but helpful to identify the order of artifact build/deploy.
+description: API service
+type: service
+dependencies:
+  - database
+options:
+  language: golang
+  sources: ./src/api
+  url: ${api.protocol}://${environment}.${api.address}:${api.port}
+  container:
+    name: api
+    cpuArch: x86_64
+    image: service-graph-api:local
+    dockerfile: docker.d/service-graph-api/Dockerfile
+    options:
+      publish:
+        - ${api.port}

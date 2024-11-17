@@ -1,0 +1,8 @@
+---
+# Define the command-line arguments and mapping to a parameter
+- name: api-protocol
+  parameter: api.protocol
+- name: api-address
+  parameter: api.address
+- name: api-port
+  parameter: api.port

@@ -1,0 +1,15 @@
+---
+description: database services
+type: database
+options:
+  language: postgresql
+  sources: ./src/database
+  url: ${database.protocol}://${database.user}@${database.password}::${environment}.${database.host}:${database.port]}
+  container:
+    name: service-graph-db
+    cpuArch: x86_64
+    image: service-graph-db:local
+    dockerfile: docker.d/service-graph-api/Dockerfile
+    options:
+      publish:
+        - ${database.port]}

@@ -1,0 +1,88 @@
+---
+# Define the security decorator functions referenced in the path-definition
+# The name field is the name of the decorator function we should generate in
+# all use cases for consistency across the project.
+#
+# Note: The decorator-type must match a supported value of a real decorator
+#       type.  For example: The rate-limit decorator type could apply to more
+#       than one decorator implementation (see publicRateLimit and authenticatedRateLimit)
+#
+# Note: The decorators can be configured using configuration.parameters (see example in
+#       the rate-limit decorator implementations.
+- name: anonymous
+  description: Allow public unauthenticated access
+  enabled: true
+  type: anonymous
+
+- name: githubAuthentication
+  description: perform the user login workflow
+  enabled: true
+  type: oauth2
+
+- name: authenticated
+  description: Only allow JWT authenticated access
+  enabled: true
+  type: JWT
+  format: RS256
+
+- name: authorized
+  description: Validate authorization by RBAC (user role/group)
+  enabled: true
+  type: RBAC
+  parameters:
+    inputs:
+      - name: requiredGroupId
+        type: uuid
+
+- name: authorizeOnlyUSA
+  description: authorize only users in the USA
+  enabled: true
+  type: geofence
+  parameters:
+    allowed:
+      - country(unitedStates)
+
+- name: blockOFAC
+  description: authorize users not in OFAC-banned countries
+  enabled: true
+  type: geofence
+  parameters:
+    blocked:
+      - country(russia)
+      - country(iran)
+      - country(northKorea)
+
+- name: blockTorOrVpn
+  description: authorize only users not connecting via Tor or known VPNs from online feed
+  enabled: true
+  type: block-tor-or-vpn
+  parameters:
+    - feed: https://my-threat-ip-feed.example.com/tor-or-vpn.json
+      update: 60min
+      maxCacheAge: 12h
+
+- name: devicePosture
+  description: Validate user posture check (device, browser, etc.)
+  enabled: true
+  type: posture-check
+
+- name: publicRateLimit
+  enabled: ${rateLimit.enabled}
+  description: Enforce a rate limit on the decorated endpoint (anonymous)
+  type: rate-limit
+  parameters:
+    rps5min: 1M  # one billion requests per second in 5min window
+    rps15min: 3M # three billion requests per second in 15min window
+    vol5min: 1MB # one GB per 5min window
+
+- name: authenticatedRateLimit
+  enabled: ${rateLimit.enabled}
+  description: Enforce a rate limit on the decorated endpoint (authenticated)
+  type: rate-limit
+  parameters:
+    rps5min: 1B  # one billion requests per second in 5min window
+    rps15min: 3B # three billion requests per second in 15min window
+    vol5min: 1GB # one GB per 5min window
+
+- name: sessionLifecycle3600sec
+  enabled: true

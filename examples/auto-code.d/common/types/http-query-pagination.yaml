@@ -1,0 +1,7 @@
+---
+offset:
+  type: uint
+  required: true
+limit:
+  type: uint
+  required: true

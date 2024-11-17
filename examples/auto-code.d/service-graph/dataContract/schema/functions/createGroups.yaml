@@ -1,0 +1,19 @@
+---
+name: updateGroups
+inputs:
+  $ref: 'auto-code.d/dataContract/schema/functions/common/pagination.yaml'
+  id:
+    # groupId
+    type: uuid
+  name:
+    type: varchar(64)
+  owner:
+    type: uuid
+output:
+  type: object
+  value:
+    count: uint
+    $ref: 'auto-code.d/dataContract/schema/functions/common/pagination.yaml'
+query:
+#ToDo: we should define the query to return the JSON object output.
+#      all functions should return JSON output as our standard.

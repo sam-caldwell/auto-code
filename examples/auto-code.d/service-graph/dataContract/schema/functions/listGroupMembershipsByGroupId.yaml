@@ -1,0 +1,22 @@
+---
+name: listGroupMembershipsByGroupId
+inputs:
+  $ref: 'auto-code.d/dataContract/schema/functions/common/pagination.yaml'
+  id:
+    # groupId
+    type: uuid
+output:
+  type: object
+  value:
+    count: uint
+    $ref: 'auto-code.d/dataContract/schema/functions/common/pagination.yaml'
+    records:
+      type: array
+      value:
+        - type: object
+          value:
+            id:
+              type: uuid
+query:
+#ToDo: we should define the query to return the JSON object output.
+#      all functions should return JSON output as our standard.

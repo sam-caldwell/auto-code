@@ -1,0 +1,24 @@
+---
+version: v1
+path: /identity/auth
+method: post
+description: Login a user
+decorators:
+  - authorizeOnlyUSA
+  - blockTorOrVpn
+  - blockOFAC
+  - devicePosture
+  - publicRateLimit
+  - githubAuthentication
+  - authenticated
+  - sessionLifecycle3600sec
+function: apiV1AuthLogin
+responses:
+  '200':
+    $ref: './auto-code.d/common/types/default-response-200.yaml'
+  '400':
+    $ref: './auto-code.d/common/types/default-response-400.yaml'
+  '401':
+    $ref: './auto-code.d/common/types/default-response-401.yaml'
+  '500':
+    $ref: './auto-code.d/common/types/default-response-500.yaml'

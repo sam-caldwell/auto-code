@@ -1,0 +1,32 @@
+---
+groups:
+  columns:
+    - name: id
+      type: uuid
+      nullable: false
+      default: "generateUuid()"
+    - name: name
+      type: varchar(64)
+      nullable: false
+    - name: owner
+      type: uuid
+      constraints:
+        - foreignKey: groupOwnerUserId
+          table: users
+          column: id
+    - name: deleted
+      type: boolean
+      nullable: false
+      default: "false"
+  indexes:
+    - name: primaryKey
+      type: primaryKey
+      columns:
+        - id
+    - name: ndxGroupName
+      type: btree
+      column: name
+      order: asc
+    - name: ndxOwner
+      type: btree
+      column: owner

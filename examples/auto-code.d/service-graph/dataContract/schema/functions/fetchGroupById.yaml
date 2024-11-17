@@ -1,0 +1,28 @@
+---
+name: fetchGroupById
+inputs:
+  $ref: 'auto-code.d/dataContract/schema/functions/common/pagination.yaml'
+  id:
+    # groupId
+    type: uuid
+output:
+  type: object
+  value:
+    count: uint
+    $ref: 'auto-code.d/dataContract/schema/functions/common/pagination.yaml'
+    records:
+      type: array
+      value:
+        - type: object
+          value:
+            id:
+              type: uuid
+            name:
+              type: varchar(64)
+            owner:
+              type: uuid
+            email:
+              type: varchar(64)
+query:
+#ToDo: we should define the query to return the JSON object output.
+#      all functions should return JSON output as our standard.

@@ -1,0 +1,27 @@
+---
+groupMembership:
+  columns:
+    - name: groupId
+      type: integer
+      nullable: false
+      constraints:
+        - foreignKey: validGroupId
+          table: groups
+          column: id
+    - name: userId
+      type: integer
+      nullable: false
+      constraints:
+        - foreignKey: validUserId
+          table: users
+          column: id
+    - name: deleted
+      type: boolean
+      nullable: false
+      default: false
+  indexes:
+    - name: primaryKey
+      type: primaryKey
+      columns:
+        - groupId
+        - userId

@@ -1,0 +1,9 @@
+---
+description: Server Failed
+content-type: application/json
+body:
+  type: object
+  properties:
+    status:
+      type: string
+      default: "server error"

@@ -1,0 +1,5 @@
+---
+value:
+  description: non-empty first or last name
+  type: string
+  regex: "^(?![-'])[a-zA-ZÀ-ÖØ-öø-ÿĀ-žḀ-ỿ' -]{1,64}(?<![-'])$"

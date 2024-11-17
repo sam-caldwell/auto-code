@@ -1,0 +1,11 @@
+---
+type: object
+value:
+  firstname:
+    $ref: './auto-code.d/common/name.yaml'
+  lastname:
+    $ref: './auto-code.d/common/name.yaml'
+  email:
+    $ref: './auto-code.d/common/email.yaml'
+  groupIds:
+    $ref: './auto-code.d/common/uuid-list.yaml'

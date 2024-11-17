@@ -1,0 +1,5 @@
+---
+value:
+  description: network listen protocol
+  type: enum(http,https)
+  default: "https"
