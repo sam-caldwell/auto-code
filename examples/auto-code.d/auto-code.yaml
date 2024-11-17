@@ -1,13 +1,13 @@
 ---
-auto-code: 0.0.1
+auto-code: v0.0.1
 info:
   title: Service Graph
   description: A graph-based service catalog
   author: Sam Caldwell
   authorEmail: scaldwell@asymmetric-effort.com
-  Copyright: (c) 2024 Asymmetric Effort, LLC. See LICENSE.txt
+  Copyright: (c) 2024 Asymmetric Effort, LLC. All Rights Reserved.
   License: MIT
-  version: 0.0.1
+  version: v0.0.1
 
 #
 # An 'artifact' is a build and deploy outcome of auto-code.  This might be a running service,
