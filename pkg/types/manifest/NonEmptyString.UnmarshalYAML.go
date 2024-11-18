@@ -7,6 +7,8 @@ import (
 )
 
 // UnmarshalYAML - unmarshal and validates a non-empty string from YAML
+//
+// $ref not supported
 func (n *NonEmptyString) UnmarshalYAML(node *yaml.Node) error {
 	var value string
 	if err := node.Decode(&value); err != nil {

@@ -8,6 +8,8 @@ import (
 )
 
 // UnmarshalYAML - Unmarshal a string and validate its value
+//
+// $ref not supported
 func (n *ArtifactName) UnmarshalYAML(node *yaml.Node) error {
 	const pattern = `^[a-zA-Z][a-zA-Z0-9\-_\.]{0,14}[a-zA-Z0-9]$`
 	var value string
