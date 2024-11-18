@@ -29,7 +29,7 @@ func (p *ParameterType) String() string {
 
 	case Enum:
 		var subValues string
-		for _, v := range p.subValue {
+		for _, v := range p.metadata {
 			if element, ok := v.(string); ok {
 				subValues += element
 			} else {

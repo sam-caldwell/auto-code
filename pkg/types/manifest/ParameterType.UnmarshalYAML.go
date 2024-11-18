@@ -76,7 +76,7 @@ func (p *ParameterType) UnmarshalYAML(node *yaml.Node) (err error) {
 		}
 		for _, enumValue := range subParts {
 			p.subType = append(p.subType, Identifier) //Enum values are undefined identifiers
-			p.subValue = append(p.subValue, enumValue)
+			p.metadata = append(p.metadata, enumValue)
 		}
 	default:
 
