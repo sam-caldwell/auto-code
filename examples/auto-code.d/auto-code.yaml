@@ -14,11 +14,11 @@ info:
 # a reference to a configured or third-party external service or a software program/tool.
 #
 artifacts:
-  - database:
+  - name: database
     $ref: './auto-code.d/service-graph/artifacts/database.yaml'
-  - api:
+  - name: api
     $ref: './auto-code.d/service-graph/artifacts/api.yaml'
-  - frontend:
+  - name: frontend
     $ref: './auto-code.d/service-graph/artifacts/frontend.yaml'
 
 # Configuration defines how the solution will be configured.  The entire solution will use

@@ -1,6 +1,5 @@
 ---
 value:
   description: build target environment
-  type: string
-  default: "local"
-  regex: "^(local|dev|stg|prod)$"
+  type: enum(local,dev,stg,prod)
+  default: local
