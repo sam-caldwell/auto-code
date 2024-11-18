@@ -5,14 +5,10 @@ package manifest
 // An artifact may be explicitly defined or may reference an external document
 // which will be consumed to populate the data.
 type ArtifactDescriptor struct {
-	Ref  DocumentReference `yaml:"$ref"`
-	Data ArtifactDescriptorDataObject
-}
-
-type ArtifactDescriptorDataObject struct {
-	Name         ArtifactName      `yaml:"name"`
-	Description  NonEmptyString    `yaml:"description"`
-	Type         ArtifactType      `yaml:"type"`
+	DataObjectWithReference
+	Name         ArtifactName      `yaml:"name,omitempty"`
+	Description  NonEmptyString    `yaml:"description,omitempty"`
+	Type         ArtifactType      `yaml:"type,omitempty"`
 	Dependencies []ArtifactName    `yaml:"dependencies,omitempty"`
 	Options      []ArtifactOptions `yaml:"options,omitempty"`
 }
