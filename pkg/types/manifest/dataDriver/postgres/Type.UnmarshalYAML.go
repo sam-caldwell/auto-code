@@ -1,4 +1,4 @@
-package manifest
+package postgres
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 )
 
 // UnmarshalYAML - Unmarshal a YAML object to PostgresType enum
-func (p *PostgresType) UnmarshalYAML(node *yaml.Node) error {
+func (p *Type) UnmarshalYAML(node *yaml.Node) error {
 
 	const pattern = `^[a-zA-Z][a-zA-Z0-9_]{0,62}(\([0-9]{1,20}\))?$`
 	var value string
@@ -23,6 +23,6 @@ func (p *PostgresType) UnmarshalYAML(node *yaml.Node) error {
 		return fmt.Errorf("invalid table name (%s)", trimmedValue)
 	}
 
-	*p = PostgresType(value)
+	*p = Type(value)
 	return nil
 }

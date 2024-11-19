@@ -1,4 +1,4 @@
-package manifest
+package postgres
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 )
 
 // UnmarshalYAML - Unmarshal a YAML node into a PostgresTableName object
-func (p *PostgresIdentifier) UnmarshalYAML(node *yaml.Node) error {
+func (p *Identifier) UnmarshalYAML(node *yaml.Node) error {
 	const pattern = `^[a-zA-Z][a-zA-Z0-9_]{0,14}[a-zA-Z0-9]$`
 	var value string
 
@@ -22,6 +22,6 @@ func (p *PostgresIdentifier) UnmarshalYAML(node *yaml.Node) error {
 		return fmt.Errorf("invalid table name (%s)", trimmedValue)
 	}
 
-	*p = PostgresIdentifier(value)
+	*p = Identifier(value)
 	return nil
 }

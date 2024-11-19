@@ -1,6 +1,6 @@
-package manifest
+package postgres
 
 // String - return a string representation of the standardized PostgresIdentifier
-func (p *PostgresIdentifier) String() string {
+func (p *Identifier) String() string {
 	return string(*p)
 }

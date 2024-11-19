@@ -1,4 +1,4 @@
-package manifest
+package dataDriver
 
 // DataDriver - an enumerated type describing the database/storage driver used in the contract.
 type DataDriver int
