@@ -38,15 +38,15 @@ func (p *ParameterValue) UnmarshalYAML(node *yaml.Node) error {
 			for i, _ := range parts {
 				parts[i] = strings.TrimSpace(parts[i])
 			}
-			p.Data.State = make(ParameterEnum, len(parts))
+			p.Data.State = make(PdoParameterEnum, len(parts))
 		}
 		return nil
 	}
 
 	parseArrayValue := func() (err error) {
 		switch p.Data.State.(type) {
-		case []any, ParameterArray:
-			p.Data.State = ParameterArray(p.Data.State.([]any))
+		case []any, PdoParameterArray:
+			p.Data.State = PdoParameterArray(p.Data.State.([]any))
 		default:
 			err = fmt.Errorf("invalid input (expected array)")
 		}
@@ -56,7 +56,7 @@ func (p *ParameterValue) UnmarshalYAML(node *yaml.Node) error {
 	parseObjectValue := func() (err error) {
 		switch p.Data.State.(type) {
 		case struct{}:
-			p.Data.State = p.Data.State.(ParameterObject)
+			p.Data.State = p.Data.State.(PdoParameterObject)
 		default:
 			err = fmt.Errorf("invalid input (expected object)")
 		}
