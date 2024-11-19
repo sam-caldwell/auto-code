@@ -19,7 +19,7 @@ func (p *PostgresTableName) UnmarshalYAML(node *yaml.Node) error {
 	trimmedValue := strings.TrimSpace(value)
 
 	if re := regexp.MustCompile(pattern); !re.MatchString(trimmedValue) {
-		return fmt.Errorf("invalid parameter name (%s)", trimmedValue)
+		return fmt.Errorf("invalid table name (%s)", trimmedValue)
 	}
 
 	*p = PostgresTableName(value)
