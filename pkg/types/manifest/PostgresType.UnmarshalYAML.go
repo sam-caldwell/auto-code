@@ -7,8 +7,8 @@ import (
 	"strings"
 )
 
-// UnmarshalYAML - Unmarshal a YAML object to PostgresTableColumnType enum
-func (p *PostgresTableColumnType) UnmarshalYAML(node *yaml.Node) error {
+// UnmarshalYAML - Unmarshal a YAML object to PostgresType enum
+func (p *PostgresType) UnmarshalYAML(node *yaml.Node) error {
 
 	const pattern = `^[a-zA-Z][a-zA-Z0-9_]{0,62}(\([0-9]{1,20}\))?$`
 	var value string
@@ -23,6 +23,6 @@ func (p *PostgresTableColumnType) UnmarshalYAML(node *yaml.Node) error {
 		return fmt.Errorf("invalid table name (%s)", trimmedValue)
 	}
 
-	*p = PostgresTableColumnType(value)
+	*p = PostgresType(value)
 	return nil
 }
