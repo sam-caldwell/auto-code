@@ -1,6 +1,6 @@
 package manifest
 
 // String - return a string representation of a postgres table column type
-func (p *PostgresColumnType) String() string {
+func (p *PostgresTableColumnType) String() string {
 	return string(*p)
 }
