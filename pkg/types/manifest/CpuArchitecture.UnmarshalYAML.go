@@ -3,6 +3,7 @@ package manifest
 import (
 	"errors"
 	"gopkg.in/yaml.v3"
+	"strings"
 )
 
 // UnmarshalYAML - unmarshal the YAML CPU architecture field.
@@ -11,7 +12,7 @@ func (cpu *CpuArchitecture) UnmarshalYAML(node *yaml.Node) error {
 	if err := node.Decode(&value); err != nil {
 		return err
 	}
-	switch value {
+	switch strings.ToLower(strings.TrimSpace(value)) {
 	case "arm":
 		*cpu = arm
 	case "arm64":
