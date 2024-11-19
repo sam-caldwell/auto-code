@@ -1,8 +1,11 @@
 package manifest
 
-import "strings"
+import (
+	"fmt"
+	"strings"
+)
 
 // String - return a string representation of an enumerated type
 func (p PdoParameterEnum) String() string {
-	return strings.Join(p, ",")
+	return fmt.Sprintf("enum(%s)", strings.Join(p, ","))
 }
