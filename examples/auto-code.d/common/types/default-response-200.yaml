@@ -4,6 +4,6 @@ content-type: application/json
 body:
   type: object
   value:
-    token:
+    status:
       type: string
       default: "ok"

@@ -29,9 +29,9 @@ decorators:
 # The developer may then customize the apiV1healthCheck() function post generation.
 function: apiV1healthCheck
 responses:
-  '200':
+  200:
     description: API is healthy.
     $ref: './auto-code.d/common/types/default-response-200.yaml'
-  '500':
+  500:
     description: API is unhealthy
     $ref: './auto-code.d/common/types/default-response-500.yaml'

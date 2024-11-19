@@ -49,7 +49,7 @@ requestBody:
                 value: groupId
               operator: And
 responses:
-  '200':
+  200:
     description: Success
     content-type: application/json
     body:
@@ -77,9 +77,9 @@ responses:
         token:
           type: string
           default: "ok"
-  '400':
+  400:
     $ref: './auto-code.d/common/types/default-response-400.yaml'
-  '401':
+  401:
     $ref: './auto-code.d/common/types/default-response-401.yaml'
-  '500':
+  500:
     $ref: './auto-code.d/common/types/default-response-500.yaml'

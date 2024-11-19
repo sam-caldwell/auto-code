@@ -9,16 +9,29 @@ decorators:
   - blockOFAC
   - devicePosture
   - publicRateLimit
-  - githubAuthentication
-  - authenticated
+  - githubAuthentication # This decorator completes the authentication dance
+  - authenticated        # Then this decorator should guarantee we are authenticated to continue.
   - sessionLifecycle3600sec
 function: apiV1AuthLogin
 responses:
-  '200':
+  200:
+    # using a $ref gives us a baseline state...
     $ref: './auto-code.d/common/types/default-response-200.yaml'
-  '400':
+    # we then can override specific data values...
+    description: Login successful
+    headers:
+      - key: jwt
+        type: string # define a value datatype
+  400:
     $ref: './auto-code.d/common/types/default-response-400.yaml'
-  '401':
+  401:
     $ref: './auto-code.d/common/types/default-response-401.yaml'
-  '500':
+    description: Login failed
+    body:
+      type: object
+      value:
+        status:
+          type: string
+          default: "Login failed"
+  500:
     $ref: './auto-code.d/common/types/default-response-500.yaml'
