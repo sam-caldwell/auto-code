@@ -7,7 +7,7 @@ type HttpEndpointDescriptor struct {
 	Version     HttpEndpointVersion `yaml:"version"`
 	Method      HttpEndpointMethod  `yaml:"method"`
 	Description NonEmptyString      `yaml:"description"`
-	Decorators  []DecoratorName     `yaml:"decorators"`
+	Decorators  []HttpDecoratorName `yaml:"decorators"`
 	Function    HttpHandlerFunction `yaml:"function"`
 	Responses   HttpResponseMap     `yaml:"responses"`
 }
