@@ -7,8 +7,8 @@ import (
 	"strings"
 )
 
-// UnmarshalYAML - Unmarshal a YAML object to PostgresTableColumnName
-func (p *PostgresColumnName) UnmarshalYAML(node *yaml.Node) error {
+// UnmarshalYAML - Unmarshal a YAML node into a PostgresTableName object
+func (p *PostgresIdentifier) UnmarshalYAML(node *yaml.Node) error {
 	const pattern = `^[a-zA-Z][a-zA-Z0-9_]{0,14}[a-zA-Z0-9]$`
 	var value string
 
@@ -19,9 +19,9 @@ func (p *PostgresColumnName) UnmarshalYAML(node *yaml.Node) error {
 	trimmedValue := strings.TrimSpace(value)
 
 	if re := regexp.MustCompile(pattern); !re.MatchString(trimmedValue) {
-		return fmt.Errorf("invalid column name (%s)", trimmedValue)
+		return fmt.Errorf("invalid table name (%s)", trimmedValue)
 	}
 
-	*p = PostgresColumnName(value)
+	*p = PostgresIdentifier(value)
 	return nil
 }
