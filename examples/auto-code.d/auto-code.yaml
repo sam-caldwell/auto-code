@@ -56,15 +56,17 @@ httpContract:
     $ref: './auto-code/httpContract/security/decorators.yaml'
 
 dataContract:
-  artifacts:
-    - database
-  driver: postgresql
-  schema:
-    tables:
-      - $ref: './auto-code/database/schema/tables/users.yaml'
-      - $ref: './auto-code/database/schema/tables/groups.yaml'
-      - $ref: './auto-code/database/schema/tables/groupMembership.yaml'
-    views:
-    functions:
-      - $ref: './auto-code/database/schema/functions/createUser.yaml'
-    procedures:
+  - name: apiDatabase
+    artifacts:
+      - database
+    schema:
+      driver: postgresql
+      tables:
+        - $ref: './auto-code/database/schema/tables/users.yaml'
+        - $ref: './auto-code/database/schema/tables/groups.yaml'
+        - $ref: './auto-code/database/schema/tables/groupMembership.yaml'
+      views: null
+      enum: null
+      functions:
+        - $ref: './auto-code/database/schema/functions/createUser.yaml'
+      procedures:
