@@ -8,15 +8,20 @@ import (
 
 // UnmarshalYAML - unmarshal yaml object to an enumerated type
 func (e *Enum) UnmarshalYAML(node *yaml.Node) error {
-	// pattern - element verification
-	const pattern = `[a-zA-Z][a-zA-Z0-9_][a-zA-Z0-9]`
-	var value []string
+
+	const identifierPattern = `^[a-zA-Z][a-zA-Z0-9_]{0,14}[a-zA-Z0-9]$`
+
+	var value Enum
 	if err := node.Decode(&value); err != nil {
 		return err
 	}
 
-	for _, element := range value {
-		if re := regexp.MustCompile(pattern); !re.MatchString(element) {
+	if re := regexp.MustCompile(identifierPattern); !re.MatchString(value.Name.String()) {
+		return fmt.Errorf("invalid enum name identifier: %s", value.Name)
+	}
+
+	for _, element := range value.Elements {
+		if re := regexp.MustCompile(identifierPattern); !re.MatchString(element.String()) {
 			return fmt.Errorf("invalid enum element: %s", element)
 		}
 	}
