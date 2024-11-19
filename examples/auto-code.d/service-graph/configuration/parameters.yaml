@@ -12,16 +12,16 @@
 - name: api.address
   $ref: './auto-code.d/common/types/listen-address-any.yaml'
 - name: api.port
-  default: networkPort(8080)
+  default: 8080
 - name: frontend.protocol
   $ref: './auto-code.d/common/types/protocols-http.yaml'
 - name: frontend.address
   $ref: './auto-code.d/common/types/listen-address-any.yaml'
 - name: frontend.port
-  default: networkPort(8000)
+  default: 8000
 - name: database.protocol
   $ref: './auto-code.d/common/types/protocols-postgresql.yaml'
 - name: database.address
   $ref: './auto-code.d/common/types/listen-address-any.yaml'
 - name: database.port
-  default: networkPort(5432)
+  default: 5432
