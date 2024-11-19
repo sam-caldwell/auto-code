@@ -10,6 +10,6 @@ type Root struct {
 	Info          Info            `yaml:"info"`
 	Artifacts     Artifacts       `yaml:"artifacts"`
 	Configuration Configuration   `yaml:"configuration"`
-	HttpContract  HttpContract    `yaml:"http-contract"`
-	DataContract  DataContract    `yaml:"data-contract"`
+	HttpContract  HttpContract    `yaml:"httpContract"`
+	DataContract  DataContract    `yaml:"dataContract"`
 }
