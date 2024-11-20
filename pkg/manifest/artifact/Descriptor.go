@@ -11,9 +11,9 @@ import (
 // which will be consumed to populate the dataContract.
 type Descriptor struct {
 	manifest.DataObjectWithReference
-	Name         Name                   `yaml:"name,omitempty"`
+	Name         generic.Identifier     `yaml:"name,omitempty"`
 	Description  generic.NonEmptyString `yaml:"description,omitempty"`
 	Type         Type                   `yaml:"type,omitempty"`
-	Dependencies []Name                 `yaml:"dependencies,omitempty"`
+	Dependencies []generic.Identifier   `yaml:"dependencies,omitempty"`
 	Options      []Options              `yaml:"options,omitempty"`
 }
