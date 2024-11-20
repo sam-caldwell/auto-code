@@ -1,4 +1,4 @@
-package manifest
+package file
 
 import (
 	"fmt"
@@ -7,10 +7,10 @@ import (
 	"strings"
 )
 
-// UnmarshalYAML - unmarshal a YAML object into the FileName string
+// UnmarshalYAML - unmarshal a YAML object into the Name string
 //
 // This should accept a
-func (f *FileName) UnmarshalYAML(node *yaml.Node) error {
+func (f *Name) UnmarshalYAML(node *yaml.Node) error {
 
 	const pattern = `^(/?([a-zA-Z0-9_.+-]+|[!#$&'()*+,;=@^{}|~]+)(/[a-zA-Z0-9_.+-]+|[!#$&'()*+,;=@^{}|~]+)*)?$`
 
@@ -26,7 +26,7 @@ func (f *FileName) UnmarshalYAML(node *yaml.Node) error {
 		return fmt.Errorf("invalid path/file name (%s)", trimmedValue)
 	}
 
-	*f = FileName(value)
+	*f = Name(value)
 
 	return nil
 
