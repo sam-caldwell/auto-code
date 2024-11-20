@@ -1,14 +1,15 @@
-package manifest
+package url
 
 import (
 	"fmt"
+	"github.com/sam-caldwell/auto-code/pkg/manifest"
 	"gopkg.in/yaml.v3"
 	"net/url"
 	"strings"
 )
 
 // UnmarshalYAML - unmarshal and parse a parameterized RFC-3986 URL pattern from YAML
-func (u *UrlPattern) UnmarshalYAML(node *yaml.Node) error {
+func (u *Pattern) UnmarshalYAML(node *yaml.Node) error {
 	var rawUrl string
 	if err := node.Decode(&rawUrl); err != nil {
 		return err
@@ -30,7 +31,7 @@ func (u *UrlPattern) UnmarshalYAML(node *yaml.Node) error {
 			return err
 		}
 	} else {
-		u.domain = NetworkAddress(host)
+		u.domain = manifest.NetworkAddress(host)
 	}
 
 	u.path.FromString(parsedUrl.Path)

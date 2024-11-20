@@ -1,7 +1,7 @@
-package manifest
+package url
 
-// String - returns the string representation of the UrlPattern
-func (u *UrlPattern) String() string {
+// String - returns the string representation of the Pattern
+func (u *Pattern) String() string {
 
 	result := u.scheme.String() + "://"
 
