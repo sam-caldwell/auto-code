@@ -35,7 +35,7 @@ configuration:
   command-line:
     $ref: './auto-code.d/service-graph/configuration/command-line.yaml'
 
-# Define any http endpoints and map them to the appropriate services
+# Define any httpContract endpoints and map them to the appropriate services
 # to ensure a consistent well-defined contract between all parties.
 httpContract:
   artifacts:

@@ -2,10 +2,11 @@ package psqlToolChain
 
 import (
 	dataCommon2 "github.com/sam-caldwell/auto-code/pkg/manifest/dataDriver/dataCommon"
+	"github.com/sam-caldwell/auto-code/pkg/types/generic"
 )
 
 var Code = dataCommon2.ToolChainCodeBlocks{
-	Features: map[dataCommon2.Identifier]dataCommon2.CodeBlock{
+	Features: map[generic.Identifier]dataCommon2.CodeBlock{
 		"Enum": dataCommon2.CodeBlock{
 			/*
 			 * Create all features needed to support a postgresql Enum type

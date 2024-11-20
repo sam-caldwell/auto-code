@@ -1,4 +1,4 @@
 package manifest
 
-// PdoParameterArray - represents an arbitrary parameter data array
+// PdoParameterArray - represents an arbitrary parameter dataContract array
 type PdoParameterArray []any

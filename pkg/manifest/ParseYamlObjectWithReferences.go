@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-// ParseYamlObjectWithReferences - handle the unmarshalling of both $ref and non-$ref YAML data.
+// ParseYamlObjectWithReferences - handle the unmarshalling of both $ref and non-$ref YAML dataContract.
 //
 // For example: To implement a $ref field, as in the below struct, we add DataObjectWithReference
 //
@@ -22,9 +22,9 @@ import (
 // This, then, adds the methods needed to meet the DataObjectWithReferences interface.
 func ParseYamlObjectWithReferences(node *yaml.Node, dataObject DataObjectWithReferences) error {
 
-	// decode the dataObject for its explicit data
+	// decode the dataObject for its explicit dataContract
 	if err := node.Decode(&dataObject); err != nil {
-		return fmt.Errorf("failed to decode explicit data: %v", err)
+		return fmt.Errorf("failed to decode explicit dataContract: %v", err)
 	}
 	// if the dataObject has no external references, return the dataObject as-is
 	if ref := dataObject.GetRef(); ref == nil {

@@ -8,13 +8,13 @@
 - name: rateLimit.enable
   $ref: './auto-code.d/common/types/rateLimit.enable.default.yaml'
 - name: api.protocol
-  $ref: './auto-code.d/common/types/protocols-http.yaml'
+  $ref: './auto-code.d/common/types/protocols-httpContract.yaml'
 - name: api.address
   $ref: './auto-code.d/common/types/listen-address-any.yaml'
 - name: api.port
   default: 8080
 - name: frontend.protocol
-  $ref: './auto-code.d/common/types/protocols-http.yaml'
+  $ref: './auto-code.d/common/types/protocols-httpContract.yaml'
 - name: frontend.address
   $ref: './auto-code.d/common/types/listen-address-any.yaml'
 - name: frontend.port

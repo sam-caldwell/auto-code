@@ -2,6 +2,9 @@ package manifest
 
 import (
 	"github.com/sam-caldwell/auto-code/pkg/manifest/artifact"
+	"github.com/sam-caldwell/auto-code/pkg/manifest/configuration"
+	"github.com/sam-caldwell/auto-code/pkg/manifest/contracts/dataContract"
+	"github.com/sam-caldwell/auto-code/pkg/manifest/contracts/httpContract"
 	"github.com/sam-caldwell/auto-code/pkg/types/version"
 )
 
@@ -11,10 +14,10 @@ import (
 //
 //	confusing.
 type Root struct {
-	Version       version.Version       `yaml:"auto-code"`
-	Info          Info                  `yaml:"info"`
-	Artifacts     []artifact.Descriptor `yaml:"artifacts"`
-	Configuration Configuration         `yaml:"configuration"`
-	HttpContract  HttpContract          `yaml:"httpContract"`
-	DataContract  DataContract          `yaml:"dataContract"`
+	Version       version.Version             `yaml:"auto-code"`
+	Info          Info                        `yaml:"info"`
+	Artifacts     []artifact.Descriptor       `yaml:"artifacts"`
+	Configuration configuration.Configuration `yaml:"configuration"`
+	HttpContract  httpContract.Root           `yaml:"httpContract"`
+	DataContract  dataContract.Root           `yaml:"dataContract"`
 }

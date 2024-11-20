@@ -1,12 +1,12 @@
 package postgres
 
 import (
-	"github.com/sam-caldwell/auto-code/pkg/manifest"
+	"github.com/sam-caldwell/auto-code/pkg/manifest/contracts/dataContract"
 )
 
 // Schema - A PostgreSQL implementation of DataSchemaDescriptor.
 type Schema struct {
-	manifest.DataSchemaDescriptorBase
+	dataContract.SchemaDescriptorBase
 
 	Tables     []Table     `yaml:"tables,omitempty"`
 	Views      []View      `yaml:"views,omitempty"`

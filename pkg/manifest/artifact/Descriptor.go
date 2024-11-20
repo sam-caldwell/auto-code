@@ -9,7 +9,7 @@ import (
 // Descriptor - represents a single project artifact.
 //
 // An artifact may be explicitly defined or may reference an external document
-// which will be consumed to populate the data.
+// which will be consumed to populate the dataContract.
 type Descriptor struct {
 	manifest.DataObjectWithReference
 	Name         Name                   `yaml:"name,omitempty"`

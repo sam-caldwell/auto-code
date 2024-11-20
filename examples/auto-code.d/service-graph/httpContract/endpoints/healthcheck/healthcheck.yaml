@@ -1,5 +1,5 @@
 ---
-# define a http healthcheck endpoint
+# define a httpContract healthcheck endpoint
 #
 # method:
 #   summary
@@ -18,7 +18,7 @@ decorators:
 # are language dependent but standardized for all endpoint payload functions.  For example,
 # golang will generate something like--
 #
-#   func apiV1healthCheck (w http.ResponseWriter, r *http.Request){
+#   func apiV1healthCheck (w httpContract.ResponseWriter, r *httpContract.Request){
 #       response := map[string]string{"status": "ok"}
 #       w.Header().Set("Content-Type", "application/json")
 #       json.NewEncoder(w).Encode(response)

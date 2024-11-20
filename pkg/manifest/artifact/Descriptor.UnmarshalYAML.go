@@ -11,7 +11,7 @@ import (
 // which may be included.
 func (a *Descriptor) UnmarshalYAML(node *yaml.Node) error {
 
-	// Parse the Descriptor, handling both $ref and non-$ref data
+	// Parse the Descriptor, handling both $ref and non-$ref dataContract
 	return manifest.ParseYamlObjectWithReferences(node, a)
 
 }

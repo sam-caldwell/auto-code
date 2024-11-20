@@ -19,7 +19,7 @@ requestBody:
   body:
     type: object
     value:
-      $ref: './auto-code.d/common/http-query-pagination.yaml'
+      $ref: './auto-code.d/common/httpContract-query-pagination.yaml'
       fields:
         - userId
         - firstname

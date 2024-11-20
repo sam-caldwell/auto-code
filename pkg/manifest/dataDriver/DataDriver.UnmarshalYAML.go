@@ -20,7 +20,7 @@ func (d *DataDriver) UnmarshalYAML(node *yaml.Node) error {
 	case "aws-s3":
 		*d = AwsS3
 	default:
-		return errors.New("unknown data driver: " + value)
+		return errors.New("unknown dataContract driver: " + value)
 	}
 	return nil
 }
