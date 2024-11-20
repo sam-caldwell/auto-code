@@ -2,7 +2,7 @@ package postgres
 
 import (
 	"fmt"
-	"github.com/sam-caldwell/auto-code/pkg/manifest/dataDriver/dataCommon"
+	"github.com/sam-caldwell/auto-code/pkg/manifest/contracts/dataContract/dataDriver/dataCommon"
 )
 
 // Generate - Generate the code for a postgresql enum
