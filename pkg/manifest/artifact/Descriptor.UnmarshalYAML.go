@@ -23,5 +23,5 @@ func (a *Descriptor) UnmarshalYAML(node *yaml.Node) error {
 			return fmt.Errorf("circular reference: '%s' cannot depend upon itself", name)
 		}
 	}
-
+	return nil
 }
