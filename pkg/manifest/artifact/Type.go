@@ -1,6 +1,6 @@
 package artifact
 
-type Type int
+type Type uint8
 
 const (
 	Service Type = iota
