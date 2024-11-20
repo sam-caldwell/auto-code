@@ -1,7 +1,7 @@
 package configuration
 
 // MergeOrder - represents the order in which Configuration sections are merged
-type MergeOrder int
+type MergeOrder uint8
 
 const (
 	Files MergeOrder = iota
