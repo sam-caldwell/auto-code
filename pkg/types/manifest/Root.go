@@ -6,10 +6,10 @@ package manifest
 //
 //	confusing.
 type Root struct {
-	Version       SemanticVersion `yaml:"auto-code"`
-	Info          Info            `yaml:"info"`
-	Artifacts     Artifacts       `yaml:"artifacts"`
-	Configuration Configuration   `yaml:"configuration"`
-	HttpContract  HttpContract    `yaml:"httpContract"`
-	DataContract  DataContract    `yaml:"dataContract"`
+	Version       SemanticVersion      `yaml:"auto-code"`
+	Info          Info                 `yaml:"info"`
+	Artifacts     []ArtifactDescriptor `yaml:"artifacts"`
+	Configuration Configuration        `yaml:"configuration"`
+	HttpContract  HttpContract         `yaml:"httpContract"`
+	DataContract  DataContract         `yaml:"dataContract"`
 }
