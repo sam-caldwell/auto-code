@@ -1,19 +1,21 @@
 package postgres
 
-import "strings"
+import (
+	"github.com/sam-caldwell/auto-code/pkg/types/manifest/dataDriver/dataCommon"
+)
 
 // Enum - represents a database enumerated type
 type Enum struct {
-	Name     Identifier   `yaml:"name"`
-	Elements EnumElements `yaml:"elements"`
+	Name     dataCommon.Identifier `yaml:"name"`
+	Elements EnumElements          `yaml:"elements"`
 }
 
-type EnumElements []Identifier
+type EnumElements []dataCommon.Identifier
 
-func (e *EnumElements) String() string {
+func (e *EnumElements) StringArray() []string {
 	s := make([]string, len(*e))
 	for i, v := range *e {
 		s[i] = string(v)
 	}
-	return strings.Join(s, ",")
+	return s
 }

@@ -4,8 +4,8 @@ import (
 	"github.com/sam-caldwell/auto-code/pkg/types/manifest"
 )
 
-// DataSchemaPostgres - An implementation of DataSchemaDescriptor used for Postgresql Db
-type DataSchemaPostgres struct {
+// Schema - A PostgreSQL implementation of DataSchemaDescriptor.
+type Schema struct {
 	manifest.DataSchemaDescriptorBase
 
 	Tables     []Table     `yaml:"tables,omitempty"`

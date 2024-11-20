@@ -2,5 +2,5 @@ package postgres
 
 // TableIndex - represents a standardized postgresql index
 type TableIndex struct {
-	Name Identifier `yaml:"name"`
+	Name dataCommon.Identifier `yaml:"name"`
 }
