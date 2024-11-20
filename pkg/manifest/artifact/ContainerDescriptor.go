@@ -11,7 +11,7 @@ type ContainerDescriptor struct {
 	manifest.DataObjectWithReference
 	Name            docker.ContainerName    `yaml:"name"`
 	CpuArchitecture cpu.CpuArchitecture     `yaml:"cpuArch"`
-	Image           docker.ContainerImage   `yaml:"image"`
+	Image           docker.Image            `yaml:"image"`
 	Dockerfile      docker.FileName         `yaml:"dockerfile"`
 	Options         docker.ContainerOptions `yaml:"options"`
 }
