@@ -1,5 +1,5 @@
-package manifest
+package license
 
-func (l *LicenseName) String() string {
+func (l *Name) String() string {
 	return [...]string{"Proprietary", "MIT", "Apache2", "BSD"}[*l]
 }

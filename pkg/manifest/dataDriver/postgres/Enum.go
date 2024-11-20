@@ -1,7 +1,7 @@
 package postgres
 
 import (
-	"github.com/sam-caldwell/auto-code/pkg/types/manifest/dataDriver/dataCommon"
+	"github.com/sam-caldwell/auto-code/pkg/manifest/dataDriver/dataCommon"
 )
 
 // Enum - represents a database enumerated type

@@ -1,4 +1,4 @@
-package manifest
+package license
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 )
 
 // UnmarshalYAML - unmarshal the YAML CPU architecture field.
-func (l *LicenseName) UnmarshalYAML(node *yaml.Node) error {
+func (l *Name) UnmarshalYAML(node *yaml.Node) error {
 	var value string
 	if err := node.Decode(&value); err != nil {
 		return err
@@ -22,7 +22,7 @@ func (l *LicenseName) UnmarshalYAML(node *yaml.Node) error {
 	case "", "proprietary":
 		*l = Proprietary
 	default:
-		return fmt.Errorf("unknown/unrecognized LicenseName '%s'", v)
+		return fmt.Errorf("unknown/unrecognized Name '%s'", v)
 	}
 	return nil
 }

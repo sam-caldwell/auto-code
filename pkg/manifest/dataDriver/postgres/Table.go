@@ -1,7 +1,7 @@
 package postgres
 
 import (
-	"github.com/sam-caldwell/auto-code/pkg/types/manifest"
+	"github.com/sam-caldwell/auto-code/pkg/manifest"
 )
 
 // Table - represents a database table

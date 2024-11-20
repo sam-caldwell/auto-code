@@ -1,8 +1,8 @@
 package manifest
 
 import (
-	"github.com/sam-caldwell/auto-code/pkg/types/manifest/dataDriver"
-	"github.com/sam-caldwell/auto-code/pkg/types/manifest/dataDriver/dataCommon"
+	"github.com/sam-caldwell/auto-code/pkg/manifest/dataDriver"
+	"github.com/sam-caldwell/auto-code/pkg/manifest/dataDriver/dataCommon"
 )
 
 // DataSchemaDescriptorBase - a base class used to create common functionality
