@@ -1,4 +1,4 @@
-package manifest
+package version
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 )
 
 // UnmarshalYAML - unmarshal and validates a semantic version string from YAML
-func (sv *SemanticVersion) UnmarshalYAML(node *yaml.Node) error {
+func (sv *Version) UnmarshalYAML(node *yaml.Node) error {
 	const pattern = `^v(\d+)\.(\d+)\.(\d+)(?:-[a-zA-Z0-9.-]+)?(?:\+[a-zA-Z0-9.-]+)?$`
 	var value string
 
@@ -23,6 +23,6 @@ func (sv *SemanticVersion) UnmarshalYAML(node *yaml.Node) error {
 		return fmt.Errorf("invalid semantic version: %s", value)
 	}
 
-	*sv = SemanticVersion(trimmedValue)
+	*sv = Version(trimmedValue)
 	return nil
 }
