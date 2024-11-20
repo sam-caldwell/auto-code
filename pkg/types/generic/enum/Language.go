@@ -1,4 +1,4 @@
-package manifest
+package enum
 
 // Language - represents the language auto-code will use to generate an artifact
 //

@@ -1,4 +1,4 @@
-package manifest
+package enum
 
 // String - return a string representation of our language
 func (l *Language) String() string {

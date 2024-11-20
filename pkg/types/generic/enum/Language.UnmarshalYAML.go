@@ -1,4 +1,4 @@
-package manifest
+package enum
 
 import (
 	"errors"
