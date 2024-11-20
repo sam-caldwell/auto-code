@@ -1,4 +1,4 @@
-package manifest
+package artifact
 
 import (
 	"errors"
@@ -6,23 +6,27 @@ import (
 	"strings"
 )
 
-// UnmarshalYAML - unmarshal the YAML object for ArtifactType as the enumerated type underlying it.
+// UnmarshalYAML - unmarshal the YAML object for Type as the enumerated type underlying it.
 //
 // $ref not supported
-func (t *ArtifactType) UnmarshalYAML(node *yaml.Node) error {
+func (t *Type) UnmarshalYAML(node *yaml.Node) error {
+
 	var value string
+
 	if err := node.Decode(&value); err != nil {
 		return err
 	}
+
 	switch v := strings.ToLower(strings.TrimSpace(value)); v {
 	case "service":
-		*t = service
+		*t = Service
 	case "external":
-		*t = external
+		*t = External
 	case "binary":
-		*t = binary
+		*t = Binary
 	default:
 		return errors.New("unknown architecture: " + v)
 	}
+
 	return nil
 }

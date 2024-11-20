@@ -1,6 +1,8 @@
 package manifest
 
+import "github.com/sam-caldwell/auto-code/pkg/manifest/artifact"
+
 type HttpContract struct {
-	Artifacts []ArtifactName           `yaml:"artifacts"`
+	Artifacts []artifact.Name          `yaml:"artifacts"`
 	Endpoints []HttpEndpointDescriptor `yaml:"endpoints"`
 }

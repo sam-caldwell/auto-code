@@ -1,4 +1,4 @@
-package manifest
+package artifact
 
 import (
 	"fmt"
@@ -10,7 +10,7 @@ import (
 // UnmarshalYAML - Unmarshal a string and validate its value
 //
 // $ref not supported
-func (n *ArtifactName) UnmarshalYAML(node *yaml.Node) error {
+func (n *Name) UnmarshalYAML(node *yaml.Node) error {
 	const pattern = `^[a-zA-Z][a-zA-Z0-9\-_\.]{0,14}[a-zA-Z0-9]$`
 	var value string
 
@@ -24,6 +24,6 @@ func (n *ArtifactName) UnmarshalYAML(node *yaml.Node) error {
 		return fmt.Errorf("invalid artifact name (%s)", trimmedValue)
 	}
 
-	*n = ArtifactName(value)
+	*n = Name(value)
 	return nil
 }
