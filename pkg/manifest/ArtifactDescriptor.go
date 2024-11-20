@@ -1,6 +1,9 @@
 package manifest
 
-import "github.com/sam-caldwell/ansi"
+import (
+	"github.com/sam-caldwell/ansi"
+	"github.com/sam-caldwell/auto-code/pkg/types/generic"
+)
 
 // ArtifactDescriptor - represents a single project artifact.
 //
@@ -8,11 +11,11 @@ import "github.com/sam-caldwell/ansi"
 // which will be consumed to populate the data.
 type ArtifactDescriptor struct {
 	DataObjectWithReference
-	Name         ArtifactName      `yaml:"name,omitempty"`
-	Description  NonEmptyString    `yaml:"description,omitempty"`
-	Type         ArtifactType      `yaml:"type,omitempty"`
-	Dependencies []ArtifactName    `yaml:"dependencies,omitempty"`
-	Options      []ArtifactOptions `yaml:"options,omitempty"`
+	Name         ArtifactName           `yaml:"name,omitempty"`
+	Description  generic.NonEmptyString `yaml:"description,omitempty"`
+	Type         ArtifactType           `yaml:"type,omitempty"`
+	Dependencies []ArtifactName         `yaml:"dependencies,omitempty"`
+	Options      []ArtifactOptions      `yaml:"options,omitempty"`
 }
 
 // Generate - Generate the project artifact

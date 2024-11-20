@@ -1,12 +1,14 @@
 package manifest
 
+import "github.com/sam-caldwell/auto-code/pkg/types/version"
+
 // Root - represents the top-level of the auto-code YAML specification
 //
 // Note: The document root does not support $ref because this would be
 //
 //	confusing.
 type Root struct {
-	Version       SemanticVersion      `yaml:"auto-code"`
+	Version       version.Version      `yaml:"auto-code"`
 	Info          Info                 `yaml:"info"`
 	Artifacts     []ArtifactDescriptor `yaml:"artifacts"`
 	Configuration Configuration        `yaml:"configuration"`

@@ -1,8 +1,10 @@
-package manifest
+package network
 
 import "fmt"
 
 // String - return the string representation of a network port
-func (n *NetworkPort) String() string {
+func (n *Port) String() string {
+
 	return fmt.Sprintf("%d", *n)
+
 }

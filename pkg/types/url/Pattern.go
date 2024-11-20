@@ -1,6 +1,9 @@
 package url
 
-import "github.com/sam-caldwell/auto-code/pkg/manifest"
+import (
+	"github.com/sam-caldwell/auto-code/pkg/manifest"
+	"github.com/sam-caldwell/auto-code/pkg/types/network"
+)
 
 // Pattern - represents a valid RFC-3986 URL pattern
 //
@@ -13,8 +16,8 @@ import "github.com/sam-caldwell/auto-code/pkg/manifest"
 type Pattern struct {
 	scheme   Scheme
 	userInfo manifest.UserInfo
-	domain   manifest.NetworkAddress
-	port     manifest.NetworkPort
+	domain   network.Address
+	port     network.Port
 	path     Path
 	query    Query
 	fragment Fragment

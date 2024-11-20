@@ -2,7 +2,7 @@ package url
 
 import (
 	"fmt"
-	"github.com/sam-caldwell/auto-code/pkg/manifest"
+	"github.com/sam-caldwell/auto-code/pkg/types/network"
 	"gopkg.in/yaml.v3"
 	"net/url"
 	"strings"
@@ -31,7 +31,7 @@ func (u *Pattern) UnmarshalYAML(node *yaml.Node) error {
 			return err
 		}
 	} else {
-		u.domain = manifest.NetworkAddress(host)
+		u.domain = network.Address(host)
 	}
 
 	u.path.FromString(parsedUrl.Path)

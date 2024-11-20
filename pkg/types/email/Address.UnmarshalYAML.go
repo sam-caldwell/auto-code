@@ -1,4 +1,4 @@
-package manifest
+package email
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 )
 
 // UnmarshalYAML - unmarshal and validates an email address from YAML (RFC5322)
-func (e *EmailAddress) UnmarshalYAML(node *yaml.Node) error {
+func (e *Address) UnmarshalYAML(node *yaml.Node) error {
 	// Regex pattern for a valid email address (simplified version)
 	const pattern = `^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$`
 	var value string
@@ -20,6 +20,6 @@ func (e *EmailAddress) UnmarshalYAML(node *yaml.Node) error {
 		return fmt.Errorf("invalid email address: %s", value)
 	}
 
-	*e = EmailAddress(value)
+	*e = Address(value)
 	return nil
 }
