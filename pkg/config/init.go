@@ -10,8 +10,8 @@ import (
 // init - initialize the configuration state at startup
 func init() {
 
-	manifestFile := flag.String("manifest-file", "manifest.yaml", "Path to the manifest file")
-	targetDirectory := flag.String("target-directory", "build", "Path to the target directory")
+	manifestFile := flag.String("manifest", "manifest.yaml", "Path to the manifest file")
+	targetDirectory := flag.String("target", "build", "Path to the target directory")
 	debug := flag.Bool("debug", false, "Enable debug mode")
 	flag.Parse()
 
