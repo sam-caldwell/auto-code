@@ -17,11 +17,26 @@ func (a *Descriptor) UnmarshalYAML(node *yaml.Node) error {
 	if err := manifest.ParseYamlObjectWithReferences(node, a); err != nil {
 		return err
 	}
-	name := strings.ToLower(strings.TrimSpace(a.Name.String()))
+
+	if err := a.Name.Validate(); err != nil {
+		return err
+	}
+
+	return a.detectCircularRefOrRepeats()
+
+}
+
+func (a *Descriptor) detectCircularRefOrRepeats() error {
+	// Make sure we do not have circular dependencies or repeating dependencies
+	seenBefore := make(map[Name]struct{})
 	for _, dep := range a.Dependencies {
-		if strings.ToLower(strings.TrimSpace(string(dep))) == name {
-			return fmt.Errorf("circular reference: '%s' cannot depend upon itself", name)
+		if strings.ToLower(strings.TrimSpace(string(dep))) == a.Name.String() {
+			return fmt.Errorf("circular reference: '%s' cannot depend upon itself", a.Name.String())
 		}
+		if _, ok := seenBefore[dep]; ok {
+			return fmt.Errorf("dependencies can only appear once: '%s'", dep.String())
+		}
+		seenBefore[dep] = struct{}{}
 	}
 	return nil
 }
