@@ -1,4 +1,4 @@
-package postgres
+package dataDriver
 
 import (
 	"fmt"

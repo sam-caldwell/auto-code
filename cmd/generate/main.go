@@ -4,46 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-
-	"gopkg.in/yaml.v3"
 )
-
-// OpenAPI represents the structure of the OpenAPI spec.
-type OpenAPI struct {
-	OpenAPI     string                 `yaml:"openapi"`
-	Info        Info                   `yaml:"info"`
-	Servers     []Server               `yaml:"servers"`
-	Paths       map[string]interface{} `yaml:"endpoints"`
-	Components  Components             `yaml:"components"`
-	XContainers []string               `yaml:"x-containers"`
-	XDatabase   Database               `yaml:"x-database"`
-}
-
-// Info represents the information block in the OpenAPI spec.
-type Info struct {
-	Description string `yaml:"description"`
-	Title       string `yaml:"title"`
-	Version     string `yaml:"version"`
-}
-
-// Server represents a server in the OpenAPI spec.
-type Server struct {
-	URL         string `yaml:"url"`
-	Description string `yaml:"description"`
-}
-
-// Components represents the components section.
-type Components struct {
-	SecuritySchemes map[string]SecurityScheme `yaml:"securitySchemes"`
-}
-
-// SecurityScheme represents a security scheme.
-type SecurityScheme struct {
-	Type         string `yaml:"type"`
-	Scheme       string `yaml:"scheme"`
-	BearerFormat string `yaml:"bearerFormat"`
-	Description  string `yaml:"description"`
-}
 
 // Database represents the x-database section.
 type Database struct {
