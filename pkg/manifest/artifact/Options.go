@@ -10,8 +10,8 @@ import (
 // Options - represents the options associated with a project artifact
 type Options struct {
 	manifest.DataObjectWithReference
-	Language  enum.Language                `yaml:"language,omitempty"`
-	Sources   directory.Name               `yaml:"sources,omitempty"`
-	Url       url.Pattern                  `yaml:"url,omitempty"`
-	Container manifest.ContainerDescriptor `yaml:"container,omitempty"`
+	Language  enum.Language       `yaml:"language,omitempty"`
+	Sources   directory.Name      `yaml:"sources,omitempty"`
+	Url       url.Pattern         `yaml:"url,omitempty"`
+	Container ContainerDescriptor `yaml:"container,omitempty"`
 }

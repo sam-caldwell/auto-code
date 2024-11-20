@@ -1,4 +1,4 @@
-package manifest
+package docker
 
 import (
 	"fmt"
@@ -11,7 +11,7 @@ import (
 // Valid patterns:
 // 1. Dockerfile
 // 2. <filename>.docker where <filename> follows POSIX path rules
-func (d *DockerFileName) UnmarshalYAML(node *yaml.Node) error {
+func (d *FileName) UnmarshalYAML(node *yaml.Node) error {
 	const pattern = `^(Dockerfile|([a-zA-Z0-9_\-./]+\.docker))$`
 	var value string
 
@@ -24,6 +24,6 @@ func (d *DockerFileName) UnmarshalYAML(node *yaml.Node) error {
 		return fmt.Errorf("invalid Dockerfile name: %s", value)
 	}
 
-	*d = DockerFileName(value)
+	*d = FileName(value)
 	return nil
 }

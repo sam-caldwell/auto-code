@@ -1,4 +1,4 @@
-package manifest
+package cpu
 
 // String - return the string value of the cpu architecture
 func (cpu *CpuArchitecture) String() string {

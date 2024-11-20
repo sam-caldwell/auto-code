@@ -1,4 +1,4 @@
-package manifest
+package docker
 
 // String - return the string representation of the ContainerImage
 func (ci *ContainerImage) String() string {

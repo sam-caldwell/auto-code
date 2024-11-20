@@ -1,4 +1,4 @@
-package manifest
+package cpu
 
 type CpuArchitecture int
 
