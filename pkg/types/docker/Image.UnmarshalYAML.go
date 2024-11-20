@@ -7,7 +7,7 @@ import (
 )
 
 // UnmarshalYAML - unmarshal and validates a container image from YAML
-func (ci *ContainerImage) UnmarshalYAML(node *yaml.Node) error {
+func (ci *Image) UnmarshalYAML(node *yaml.Node) error {
 	const pattern = `^[a-zA-Z0-9\-_]+(?:/[a-zA-Z0-9\-_]+)*(?::[a-zA-Z0-9\-.]+)?$`
 	var value string
 	if err := node.Decode(&value); err != nil {
@@ -18,6 +18,6 @@ func (ci *ContainerImage) UnmarshalYAML(node *yaml.Node) error {
 		return fmt.Errorf("invalid container image name: %s", value)
 	}
 
-	*ci = ContainerImage(value)
+	*ci = Image(value)
 	return nil
 }

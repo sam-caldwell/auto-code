@@ -1,6 +1,6 @@
 package docker
 
-// String - return the string representation of the ContainerImage
-func (ci *ContainerImage) String() string {
+// String - return the string representation of the Image
+func (ci *Image) String() string {
 	return string(*ci)
 }
