@@ -6,9 +6,6 @@ import (
 	"github.com/sam-caldwell/auto-code/pkg/project"
 )
 
-/*
- *
- */
 func main() {
 	if config.Debug() {
 
