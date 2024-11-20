@@ -18,7 +18,7 @@ import (
 // single source of truth.
 type Parameter struct {
 	manifest.DataObjectWithReference
-	Name        generic.Identifier      `yaml:"name"`
-	Description generic.NonEmptyString  `yaml:"description"`
-	Value       manifest.ParameterValue `yaml:"value"`
+	Name        generic.Identifier     `yaml:"name"`
+	Description generic.NonEmptyString `yaml:"description"`
+	Value       ParameterValue         `yaml:"value"`
 }
