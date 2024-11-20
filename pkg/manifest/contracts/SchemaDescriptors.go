@@ -1,8 +1,8 @@
-package dataContract
+package contracts
 
 import "gopkg.in/yaml.v3"
 
-// SchemaDescriptors - an interface for a dataContract contract schema
+// SchemaDescriptors - an interface for a contract schema (applies to both http and data contracts)
 type SchemaDescriptors interface {
 
 	// String - return a string representation of the object

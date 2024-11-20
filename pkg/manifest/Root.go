@@ -5,6 +5,7 @@ import (
 	"github.com/sam-caldwell/auto-code/pkg/manifest/configuration"
 	"github.com/sam-caldwell/auto-code/pkg/manifest/contracts/dataContract"
 	"github.com/sam-caldwell/auto-code/pkg/manifest/contracts/httpContract"
+	"github.com/sam-caldwell/auto-code/pkg/manifest/metadata"
 	"github.com/sam-caldwell/auto-code/pkg/types/version"
 )
 
@@ -15,7 +16,7 @@ import (
 //	confusing.
 type Root struct {
 	Version       version.Version             `yaml:"auto-code"`
-	Info          Info                        `yaml:"info"`
+	Info          metadata.Info               `yaml:"info"`
 	Artifacts     []artifact.Descriptor       `yaml:"artifacts"`
 	Configuration configuration.Configuration `yaml:"configuration"`
 	HttpContract  httpContract.Root           `yaml:"httpContract"`

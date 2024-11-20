@@ -1,4 +1,4 @@
-package manifest
+package metadata
 
 import (
 	"github.com/sam-caldwell/auto-code/pkg/types/copyright"
