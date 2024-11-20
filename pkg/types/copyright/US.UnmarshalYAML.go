@@ -1,4 +1,4 @@
-package manifest
+package copyright
 
 import (
 	"fmt"
@@ -10,7 +10,7 @@ import (
 // UnmarshalYAML - unmarshal and validates a US Copyright string from YAML
 //
 // Expected format: "(c) YEAR Name All Rights Reserved."
-func (u *USCopyright) UnmarshalYAML(node *yaml.Node) error {
+func (u *US) UnmarshalYAML(node *yaml.Node) error {
 	const pattern = `^\(c\) \d{4} [a-zA-Z ,.'-]+ All Rights Reserved\.$`
 	var value string
 
@@ -25,6 +25,6 @@ func (u *USCopyright) UnmarshalYAML(node *yaml.Node) error {
 		return fmt.Errorf("invalid US Copyright format: %s", value)
 	}
 
-	*u = USCopyright(trimmedValue)
+	*u = US(trimmedValue)
 	return nil
 }

@@ -1,6 +1,7 @@
 package manifest
 
 import (
+	"github.com/sam-caldwell/auto-code/pkg/types/copyright"
 	"github.com/sam-caldwell/auto-code/pkg/types/license"
 )
 
@@ -9,7 +10,7 @@ type Info struct {
 	Description NonEmptyString  `yaml:"description"`
 	Author      NonEmptyString  `yaml:"author"`
 	AuthorEmail EmailAddress    `yaml:"authorEmail"`
-	Copyright   USCopyright     `yaml:"copyright"`
+	Copyright   copyright.US    `yaml:"copyright"`
 	License     license.Name    `yaml:"license"`
 	Version     SemanticVersion `yaml:"version"`
 }
