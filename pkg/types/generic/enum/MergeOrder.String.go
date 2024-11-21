@@ -1,4 +1,4 @@
-package configuration
+package enum
 
 // String - return string representation of MergeOrder
 func (m *MergeOrder) String() string {

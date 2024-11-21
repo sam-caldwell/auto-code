@@ -1,6 +1,9 @@
 package configuration
 
-import "github.com/sam-caldwell/auto-code/pkg/manifest/configuration/source"
+import (
+	"github.com/sam-caldwell/auto-code/pkg/manifest/configuration/source"
+	"github.com/sam-caldwell/auto-code/pkg/types/generic/enum"
+)
 
 // Configuration - define the standardized mechanism by which the solution is configured.
 //
@@ -10,7 +13,7 @@ import "github.com/sam-caldwell/auto-code/pkg/manifest/configuration/source"
 // overlay environment variables and command-line arguments so that the applications themselves
 // can reference the resulting dataContract using a common parameter name scheme without a lot of effort.
 type Configuration struct {
-	MergeOrder  []MergeOrder            `yaml:"merge-order,omitempty"`
+	MergeOrder  []enum.MergeOrder       `yaml:"merge-order,omitempty"`
 	Parameters  []Parameter             `yaml:"parameters,omitempty"`
 	Files       []source.File           `yaml:"files,omitempty"`
 	Environment []source.Environment    `yaml:"environment,omitempty"`
