@@ -40,7 +40,7 @@ func (p *ParameterValue) UnmarshalYAML(node *yaml.Node) error {
 			for i, _ := range parts {
 				parts[i] = strings.TrimSpace(parts[i])
 			}
-			p.Data.State = make(pdo.PdoParameterEnum, len(parts))
+			p.Data.State = make(pdo.Enum, len(parts))
 		}
 		return nil
 	}

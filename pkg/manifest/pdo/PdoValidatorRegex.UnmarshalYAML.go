@@ -1,4 +1,4 @@
-package manifest
+package pdo
 
 import (
 	"gopkg.in/yaml.v3"
