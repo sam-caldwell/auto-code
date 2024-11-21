@@ -1,7 +1,6 @@
 package url
 
 import (
-	"github.com/sam-caldwell/auto-code/pkg/manifest"
 	"github.com/sam-caldwell/auto-code/pkg/types/network"
 )
 
@@ -15,7 +14,7 @@ import (
 // at any point in the pattern.
 type Pattern struct {
 	scheme   Scheme
-	userInfo manifest.UserInfo
+	userInfo UserInfo
 	domain   network.Address
 	port     network.Port
 	path     Path

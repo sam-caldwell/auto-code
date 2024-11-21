@@ -1,4 +1,4 @@
-package manifest
+package url
 
 import "net/url"
 

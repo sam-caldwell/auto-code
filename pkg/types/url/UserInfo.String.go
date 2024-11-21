@@ -1,4 +1,4 @@
-package manifest
+package url
 
 // String - return the RFC-3986 user info part as a string
 func (u *UserInfo) String() string {
