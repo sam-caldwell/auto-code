@@ -1,4 +1,4 @@
-package configuration
+package source
 
 // FileFormat - The configuration file format (which should match the extension and content)
 type FileFormat int
