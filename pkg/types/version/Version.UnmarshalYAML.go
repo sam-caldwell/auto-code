@@ -2,6 +2,7 @@ package version
 
 import (
 	"fmt"
+	"github.com/sam-caldwell/ansi"
 	"gopkg.in/yaml.v3"
 	"regexp"
 	"strings"
@@ -24,5 +25,6 @@ func (sv *Version) UnmarshalYAML(node *yaml.Node) error {
 	}
 
 	*sv = Version(trimmedValue)
+	ansi.Debugf("Unmarshal version (%s): OK", sv.String()).LF()
 	return nil
 }
