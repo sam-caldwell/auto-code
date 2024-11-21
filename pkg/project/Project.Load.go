@@ -1,6 +1,7 @@
 package project
 
 import (
+	"github.com/sam-caldwell/ansi"
 	"github.com/sam-caldwell/auto-code/pkg/config"
 	"gopkg.in/yaml.v3"
 	"os"
@@ -13,14 +14,16 @@ import (
 // is completed, the project.source variable will contain the entire
 // project structure in memory for final generation.
 func Load() (err error) {
-	//Load/Parse/Resolve the project manifest
 	var raw []byte
+	ansi.Debugf("Reading file (%s)", config.Manifest()).LF()
 	raw, err = os.ReadFile(config.Manifest())
 	if err != nil {
 		return err
 	}
+	ansi.Debugln("Unmarshal YAML manifest")
 	if err = yaml.Unmarshal(raw, &source); err != nil {
 		return err
 	}
+	ansi.Debugln("manifest is loaded successfully")
 	return nil
 }
