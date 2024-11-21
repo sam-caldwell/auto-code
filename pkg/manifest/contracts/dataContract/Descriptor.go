@@ -11,5 +11,5 @@ type Descriptor struct {
 	xref.DataObjectWithReference
 	common.Base
 	Driver enum.DataDriver `yaml:"driver"`
-	Schema []common.Schema `yaml:"schema"`
+	Schema common.Schema   `yaml:"schema"`
 }
