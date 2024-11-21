@@ -1,10 +1,8 @@
 package artifact
 
 import (
-	"fmt"
-	"github.com/sam-caldwell/auto-code/pkg/manifest"
+	"github.com/sam-caldwell/auto-code/pkg/types/xref"
 	"gopkg.in/yaml.v3"
-	"strings"
 )
 
 // UnmarshalYAML - Parse a Descriptor and store its information properly.
@@ -14,7 +12,7 @@ import (
 func (a *Descriptor) UnmarshalYAML(node *yaml.Node) error {
 
 	// Parse the Descriptor, handling both $ref and non-$ref dataContract
-	if err := manifest.ParseYamlObjectWithReferences(node, a); err != nil {
+	if err := xref.ParseYamlObjectWithReferences(node, a); err != nil {
 		return err
 	}
 
@@ -24,19 +22,4 @@ func (a *Descriptor) UnmarshalYAML(node *yaml.Node) error {
 
 	return a.detectCircularRefOrRepeats()
 
-}
-
-func (a *Descriptor) detectCircularRefOrRepeats() error {
-	// Make sure we do not have circular dependencies or repeating dependencies
-	seenBefore := make(map[Name]struct{})
-	for _, dep := range a.Dependencies {
-		if strings.ToLower(strings.TrimSpace(string(dep))) == a.Name.String() {
-			return fmt.Errorf("circular reference: '%s' cannot depend upon itself", a.Name.String())
-		}
-		if _, ok := seenBefore[dep]; ok {
-			return fmt.Errorf("dependencies can only appear once: '%s'", dep.String())
-		}
-		seenBefore[dep] = struct{}{}
-	}
-	return nil
 }
