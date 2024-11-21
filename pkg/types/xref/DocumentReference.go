@@ -1,4 +1,4 @@
-package manifest
+package xref
 
 // DocumentReference - a path/file or url reference to an external document.
 //
