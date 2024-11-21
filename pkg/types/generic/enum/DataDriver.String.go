@@ -1,4 +1,4 @@
-package dataDriver
+package enum
 
 // String - return a string representation of the dataContract contract storage type
 func (d *DataDriver) String() string {

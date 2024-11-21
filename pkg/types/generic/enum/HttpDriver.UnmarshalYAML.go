@@ -1,4 +1,4 @@
-package httpDriver
+package enum
 
 import (
 	"errors"

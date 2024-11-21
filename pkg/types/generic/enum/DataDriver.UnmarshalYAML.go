@@ -1,4 +1,4 @@
-package dataDriver
+package enum
 
 import (
 	"errors"

@@ -1,4 +1,4 @@
-package httpDriver
+package enum
 
 // HttpDriver - an enumerated type describing the http endpoint driver
 type HttpDriver uint8

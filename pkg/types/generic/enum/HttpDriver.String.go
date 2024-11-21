@@ -1,4 +1,4 @@
-package httpDriver
+package enum
 
 // String - return a string representation of an HttpDriver
 func (e *HttpDriver) String() string {
