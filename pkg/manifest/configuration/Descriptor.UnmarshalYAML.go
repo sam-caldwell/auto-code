@@ -4,7 +4,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-func (c *Configuration) UnmarshalYAML(node *yaml.Node) error {
+func (c *Descriptor) UnmarshalYAML(node *yaml.Node) error {
 
 	if err := node.Decode(c); err != nil {
 		return err

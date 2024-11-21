@@ -6,7 +6,7 @@ import (
 )
 
 // validMergeOrder - ensure that the MergeOrder elements are valid
-func (c *Configuration) validMergeOrder() error {
+func (c *Descriptor) validMergeOrder() error {
 	for _, element := range c.MergeOrder {
 		switch element {
 		case enum.Files, enum.EnvironmentVars, enum.CommandLine:

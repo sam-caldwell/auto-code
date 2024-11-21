@@ -5,13 +5,13 @@ import (
 	"github.com/sam-caldwell/auto-code/pkg/types/generic"
 )
 
-// Parameter - represents the top-level object in Configuration.
+// Parameter - represents the top-level object in Descriptor.
 //
-// Given one or more data sources to configure a solution, the Configuration object
+// Given one or more data sources to configure a solution, the Descriptor object
 // reads the configuration sources then merges them (using MergeOrder) before storing
-// and validating the final value against the Configuration.Parameter array.
+// and validating the final value against the Descriptor.Parameter array.
 //
-// This object represents one element of the Configuration.Parameter array, and it
+// This object represents one element of the Descriptor.Parameter array, and it
 // maps a parameter's name to its description and value (state and validator logic).
 //
 // When completed, the configuration process will expose the Parameter object as the

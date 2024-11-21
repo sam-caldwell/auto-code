@@ -2,10 +2,10 @@ package configuration
 
 import "fmt"
 
-// validCommandLine - validate the commandline argument strings
-func (c *Configuration) validCommandLine() error {
+// validEnvironment - validate the environment variable names
+func (c *Descriptor) validEnvironment() error {
 
-	for _, element := range c.CommandLine {
+	for _, element := range c.Environment {
 
 		if !c.existsInParameters(element.Parameter.String()) {
 			return fmt.Errorf("parameter %s does not exist", element.Name.String())

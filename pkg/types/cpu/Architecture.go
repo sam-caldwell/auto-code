@@ -1,5 +1,6 @@
 package cpu
 
+// Architecture - an enumerated type representing a CPU Architecture
 type Architecture int
 
 const (

@@ -1,7 +1,7 @@
 package configuration
 
 // Validate - Validate the information in the configuration object
-func (c *Configuration) Validate() error {
+func (c *Descriptor) Validate() error {
 	if err := c.validMergeOrder(); err != nil {
 		return err
 	}

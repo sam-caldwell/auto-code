@@ -15,10 +15,10 @@ import (
 //
 //	confusing.
 type Root struct {
-	Version       version.Version             `yaml:"auto-code"`
-	Info          metadata.Info               `yaml:"info"`
-	Artifacts     []artifact.Descriptor       `yaml:"artifacts"`
-	Configuration configuration.Configuration `yaml:"configuration"`
-	HttpContract  httpContract.Root           `yaml:"httpContract"`
-	DataContract  dataContract.Root           `yaml:"dataContract"`
+	Version       version.Version          `yaml:"auto-code"`
+	Info          metadata.Info            `yaml:"info"`
+	Artifacts     []artifact.Descriptor    `yaml:"artifacts"`
+	Configuration configuration.Descriptor `yaml:"configuration"`
+	HttpContract  httpContract.Root        `yaml:"httpContract"`
+	DataContract  dataContract.Root        `yaml:"dataContract"`
 }
