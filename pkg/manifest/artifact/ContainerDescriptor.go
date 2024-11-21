@@ -1,14 +1,14 @@
 package artifact
 
 import (
-	"github.com/sam-caldwell/auto-code/pkg/manifest"
 	"github.com/sam-caldwell/auto-code/pkg/types/cpu"
 	"github.com/sam-caldwell/auto-code/pkg/types/docker"
+	"github.com/sam-caldwell/auto-code/pkg/types/xref"
 )
 
 // ContainerDescriptor - represents a docker container definition
 type ContainerDescriptor struct {
-	manifest.DataObjectWithReference
+	xref.DataObjectWithReference
 	Name            docker.ContainerName    `yaml:"name"`
 	CpuArchitecture cpu.Architecture        `yaml:"cpuArch"`
 	Image           docker.Image            `yaml:"image"`
