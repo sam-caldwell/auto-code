@@ -8,7 +8,7 @@ import (
 // File - represents a configuration file
 type File struct {
 	manifest.DataObjectWithReference
-	Name   file.Name  `yaml:"name"`
-	Format FileFormat `yaml:"format"`
-	Schema FileSchema `yaml:"schema"`
+	Name   file.Name    `yaml:"name"`
+	Format FileFormat   `yaml:"format"`
+	Schema []FileSchema `yaml:"schema"`
 }
