@@ -1,7 +1,7 @@
 package dataDriver
 
 // DataDriver - an enumerated type describing the database/storage driver used in the contract.
-type DataDriver int
+type DataDriver uint8
 
 const (
 	File DataDriver = iota
