@@ -1,32 +1,19 @@
 package file
 
 import (
-	"fmt"
 	"gopkg.in/yaml.v3"
-	"regexp"
-	"strings"
 )
 
 // UnmarshalYAML - unmarshal a YAML object into the Name string
-//
-// This should accept a
 func (f *Name) UnmarshalYAML(node *yaml.Node) error {
 
-	const pattern = `^(/?([a-zA-Z0-9_.+-]+|[!#$&'()*+,;=@^{}|~]+)(/[a-zA-Z0-9_.+-]+|[!#$&'()*+,;=@^{}|~]+)*)?$`
-
-	var value string
-
-	if err := node.Decode(&value); err != nil {
+	if err := node.Decode(f); err != nil {
 		return err
 	}
 
-	trimmedValue := strings.TrimSpace(value)
-
-	if re := regexp.MustCompile(pattern); !re.MatchString(trimmedValue) {
-		return fmt.Errorf("invalid path/file name (%s)", trimmedValue)
+	if err := f.Validate(); err != nil {
+		return err
 	}
-
-	*f = Name(value)
 
 	return nil
 
