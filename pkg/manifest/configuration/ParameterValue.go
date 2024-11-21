@@ -1,8 +1,8 @@
 package configuration
 
 import (
-	"github.com/sam-caldwell/auto-code/pkg/manifest"
 	"github.com/sam-caldwell/auto-code/pkg/manifest/pdo"
+	"github.com/sam-caldwell/auto-code/pkg/types/xref"
 )
 
 // ParameterValue - represents a parameter value, type and validation regex
@@ -13,6 +13,6 @@ import (
 // typed data value (state) and its validator logic.  While the PDO can store
 // many different data types, it does perform type-checking and enforcement.
 type ParameterValue struct {
-	manifest.DataObjectWithReference
+	xref.DataObjectWithReference
 	Data pdo.DataObject `yaml:"value"`
 }

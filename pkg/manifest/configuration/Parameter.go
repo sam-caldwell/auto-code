@@ -1,8 +1,8 @@
 package configuration
 
 import (
-	"github.com/sam-caldwell/auto-code/pkg/manifest"
 	"github.com/sam-caldwell/auto-code/pkg/types/generic"
+	"github.com/sam-caldwell/auto-code/pkg/types/xref"
 )
 
 // Parameter - represents the top-level object in Descriptor.
@@ -17,7 +17,7 @@ import (
 // When completed, the configuration process will expose the Parameter object as the
 // single source of truth.
 type Parameter struct {
-	manifest.DataObjectWithReference
+	xref.DataObjectWithReference
 	Name        generic.Identifier     `yaml:"name"`
 	Description generic.NonEmptyString `yaml:"description"`
 	Value       ParameterValue         `yaml:"value"`

@@ -1,8 +1,8 @@
 package source
 
 import (
-	"github.com/sam-caldwell/auto-code/pkg/manifest"
 	"github.com/sam-caldwell/auto-code/pkg/types/generic"
+	"github.com/sam-caldwell/auto-code/pkg/types/xref"
 )
 
 // CommandLineArg - represents a command-line argument for the Configuration object
@@ -13,7 +13,7 @@ import (
 //
 // Note: Parameter must exist in the Configuration.Parameters section.
 type CommandLineArg struct {
-	manifest.DataObjectWithReference
+	xref.DataObjectWithReference
 	Name      generic.Identifier `yaml:"Name"`
 	Parameter generic.Identifier `yaml:"parameter"`
 }

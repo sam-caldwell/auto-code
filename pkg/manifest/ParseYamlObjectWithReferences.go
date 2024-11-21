@@ -2,6 +2,7 @@ package manifest
 
 import (
 	"fmt"
+	"github.com/sam-caldwell/auto-code/pkg/types/xref"
 	"gopkg.in/yaml.v3"
 	"os"
 )
@@ -21,7 +22,7 @@ import (
 //
 // This, then, adds the methods needed to meet the DataObjectWithReferences interface.
 // ToDo: detect loops
-func ParseYamlObjectWithReferences(node *yaml.Node, dataObject DataObjectWithReferences) error {
+func ParseYamlObjectWithReferences(node *yaml.Node, dataObject xref.DataObjectWithReferences) error {
 
 	// decode the dataObject for its explicit dataContract
 	if err := node.Decode(&dataObject); err != nil {
