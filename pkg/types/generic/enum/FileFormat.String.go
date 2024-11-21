@@ -1,4 +1,4 @@
-package source
+package enum
 
 // String - return a string representation of a FileFormat enumerated type
 func (cfg *FileFormat) String() string {

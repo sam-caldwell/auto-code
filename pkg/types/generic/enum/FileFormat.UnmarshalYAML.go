@@ -1,4 +1,4 @@
-package source
+package enum
 
 import (
 	"errors"
