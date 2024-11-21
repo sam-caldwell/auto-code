@@ -2,16 +2,16 @@ package postgres
 
 import (
 	"fmt"
-	"github.com/sam-caldwell/auto-code/pkg/manifest/contracts/dataContract/dataDriver/dataCommon"
+	"github.com/sam-caldwell/auto-code/pkg/manifest/contracts/common"
 )
 
 // Generate - Generate the code for a postgresql enum
-func (e *Enum) Generate() *dataCommon.CodeBlock {
+func (e *Enum) Generate() *common.CodeBlock {
 
 	name := e.Name.String()
 	elements := e.Elements.StringArray()
 
-	return &dataCommon.CodeBlock{
+	return &common.CodeBlock{
 
 		Forward: []string{
 			// Note: upsertEnum() is a function auto-code must create before executing migrations.
