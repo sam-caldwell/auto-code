@@ -14,7 +14,7 @@ func main() {
 	if err := project.Load(); err != nil {
 		ansi.Red().Errorf("Error loading manifest: %s", err).LF().Fatal(1)
 	}
-	ansi.Debugf("Writing manifest").LF()
+	ansi.Debugf("Writing manifest...").LF()
 	if err := project.WriteManifest(); err != nil {
 		ansi.Red().Errorf("Error writing manifest: %s", err).LF().Fatal(2)
 	}
