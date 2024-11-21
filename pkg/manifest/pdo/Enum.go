@@ -1,4 +1,4 @@
-package manifest
+package pdo
 
 // PdoParameterEnum - represents an enum(e1,e2,e3) structure.
 //
