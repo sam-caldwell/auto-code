@@ -1,4 +1,4 @@
-package httpContract
+package archive
 
 // String - return a string representation of HttpEndpointMethod
 func (h *HttpEndpointMethod) String() string {

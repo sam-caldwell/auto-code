@@ -1,4 +1,4 @@
-package httpContract
+package archive
 
 import (
 	"github.com/sam-caldwell/auto-code/pkg/manifest"

@@ -1,4 +1,4 @@
-package httpContract
+package archive
 
 // HttpEndpointVersion - represents a httpContract endpoint version.  Used for versioning APIs.
 //

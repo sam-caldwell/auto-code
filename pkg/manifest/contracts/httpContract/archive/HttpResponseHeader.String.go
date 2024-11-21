@@ -1,4 +1,4 @@
-package httpContract
+package archive
 
 import (
 	"gopkg.in/yaml.v3"
