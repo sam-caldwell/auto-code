@@ -7,7 +7,7 @@ import (
 )
 
 // UnmarshalYAML - unmarshal the YAML CPU architecture field.
-func (cpu *CpuArchitecture) UnmarshalYAML(node *yaml.Node) error {
+func (cpu *Architecture) UnmarshalYAML(node *yaml.Node) error {
 	var value string
 	if err := node.Decode(&value); err != nil {
 		return err
