@@ -1,13 +1,13 @@
 package httpContract
 
 import (
-	"github.com/sam-caldwell/auto-code/pkg/manifest"
 	"github.com/sam-caldwell/auto-code/pkg/types/generic"
+	"github.com/sam-caldwell/auto-code/pkg/types/xref"
 )
 
 // HttpEndpointDescriptor - Represents an HTTP endpoint
 type HttpEndpointDescriptor struct {
-	manifest.DataObjectWithReference
+	xref.DataObjectWithReference
 	Path        HttpEndpointPath       `yaml:"path"`
 	Version     HttpEndpointVersion    `yaml:"version"`
 	Method      HttpEndpointMethod     `yaml:"method"`

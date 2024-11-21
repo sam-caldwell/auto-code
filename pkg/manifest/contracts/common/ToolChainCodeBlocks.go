@@ -1,4 +1,4 @@
-package dataCommon
+package common
 
 import "github.com/sam-caldwell/auto-code/pkg/types/generic"
 
