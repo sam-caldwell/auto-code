@@ -3,8 +3,7 @@ package manifest
 import (
 	"github.com/sam-caldwell/auto-code/pkg/manifest/artifact"
 	"github.com/sam-caldwell/auto-code/pkg/manifest/configuration"
-	"github.com/sam-caldwell/auto-code/pkg/manifest/contracts/dataContract"
-	"github.com/sam-caldwell/auto-code/pkg/manifest/contracts/httpContract"
+	"github.com/sam-caldwell/auto-code/pkg/manifest/contracts"
 	"github.com/sam-caldwell/auto-code/pkg/manifest/metadata"
 	"github.com/sam-caldwell/auto-code/pkg/types/version"
 )
@@ -17,10 +16,9 @@ import (
 //
 // ToDo: verify that the dataContract, httpContract names are in the artifacts list.
 type Root struct {
-	Version       version.Version           `yaml:"auto-code"`
-	Info          metadata.Info             `yaml:"info"`
-	Artifacts     []artifact.Descriptor     `yaml:"artifacts"`
-	Configuration configuration.Descriptor  `yaml:"configuration"`
-	DataContract  []dataContract.Descriptor `yaml:"dataContract"`
-	HttpContract  []httpContract.Descriptor `yaml:"httpContract"`
+	Version       version.Version          `yaml:"auto-code"`
+	Info          metadata.Info            `yaml:"info"`
+	Artifacts     []artifact.Descriptor    `yaml:"artifacts"`
+	Configuration configuration.Descriptor `yaml:"configuration"`
+	Contracts     contracts.Descriptor     `yaml:"contracts"`
 }
