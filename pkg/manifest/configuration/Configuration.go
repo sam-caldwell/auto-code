@@ -1,5 +1,7 @@
 package configuration
 
+import "github.com/sam-caldwell/auto-code/pkg/manifest/configuration/source"
+
 // Configuration - define the standardized mechanism by which the solution is configured.
 //
 // This struct creates a standardized configuration mechanism for the solution (all artifacts)
@@ -8,9 +10,9 @@ package configuration
 // overlay environment variables and command-line arguments so that the applications themselves
 // can reference the resulting dataContract using a common parameter name scheme without a lot of effort.
 type Configuration struct {
-	MergeOrder  []MergeOrder          `yaml:"merge-order,omitempty"`
-	Parameters  []Parameter           `yaml:"parameters,omitempty"`
-	Files       []File                `yaml:"files,omitempty"`
-	Environment []EnvironmentVariable `yaml:"environment,omitempty"`
-	CommandLine []CommandLineArg      `yaml:"command-line,omitempty"`
+	MergeOrder  []MergeOrder            `yaml:"merge-order,omitempty"`
+	Parameters  []Parameter             `yaml:"parameters,omitempty"`
+	Files       []source.File           `yaml:"files,omitempty"`
+	Environment []source.Environment    `yaml:"environment,omitempty"`
+	CommandLine []source.CommandLineArg `yaml:"command-line,omitempty"`
 }

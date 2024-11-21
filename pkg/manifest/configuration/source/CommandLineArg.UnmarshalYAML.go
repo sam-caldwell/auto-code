@@ -1,4 +1,4 @@
-package configuration
+package source
 
 import (
 	"github.com/sam-caldwell/auto-code/pkg/manifest"
