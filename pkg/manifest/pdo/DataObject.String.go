@@ -37,8 +37,8 @@ func (pdo *DataObject) String() string {
 		return pdo.State.(Array).String()
 	case Enum:
 		return pdo.State.(Enum).String()
-	case PdoParameterObject:
-		return pdo.State.(PdoParameterObject).String()
+	case Object:
+		return pdo.State.(Object).String()
 	default:
 		panic(fmt.Sprintf("unhandled default case in DataObject.String(): '%c'", pdo.State))
 	}

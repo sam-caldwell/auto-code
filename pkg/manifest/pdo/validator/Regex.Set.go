@@ -1,4 +1,4 @@
-package pdo
+package validator
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 )
 
 // Set - define the regular expression input
-func (p *PdoValidatorRegex) Set(input any) error {
+func (p *Regex) Set(input any) error {
 	switch input.(type) {
 	case *regexp.Regexp:
 		p.re = input.(*regexp.Regexp)

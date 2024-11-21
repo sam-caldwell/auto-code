@@ -1,4 +1,4 @@
-package pdo
+package validator
 
 import (
 	"gopkg.in/yaml.v3"
@@ -7,7 +7,7 @@ import (
 )
 
 // UnmarshalYAML - unmarshal a yaml object which is expected to contain a regular expression.
-func (p *PdoValidatorRegex) UnmarshalYAML(node *yaml.Node) error {
+func (p *Regex) UnmarshalYAML(node *yaml.Node) error {
 	var value string
 	if err := node.Decode(&value); err != nil {
 		return err
