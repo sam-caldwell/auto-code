@@ -2,7 +2,7 @@ package httpContract
 
 import (
 	"github.com/sam-caldwell/auto-code/pkg/manifest/contracts/common"
-	"github.com/sam-caldwell/auto-code/pkg/manifest/contracts/httpContract/httpDriver"
+	"github.com/sam-caldwell/auto-code/pkg/types/generic/enum"
 	"github.com/sam-caldwell/auto-code/pkg/types/xref"
 )
 
@@ -10,6 +10,6 @@ import (
 type Descriptor struct {
 	xref.DataObjectWithReference
 	common.Base
-	Driver httpDriver.HttpDriver `yaml:"driver"`
-	Schema []common.Schema       `yaml:"schema"`
+	Driver enum.HttpDriver `yaml:"driver"`
+	Schema []common.Schema `yaml:"schema"`
 }
