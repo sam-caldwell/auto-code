@@ -58,7 +58,7 @@ func (p *ParameterValue) UnmarshalYAML(node *yaml.Node) error {
 	parseObjectValue := func() (err error) {
 		switch p.Data.State.(type) {
 		case struct{}:
-			p.Data.State = p.Data.State.(pdo.PdoParameterObject)
+			p.Data.State = p.Data.State.(pdo.Object)
 		default:
 			err = fmt.Errorf("invalid input (expected object)")
 		}
@@ -87,4 +87,5 @@ func (p *ParameterValue) UnmarshalYAML(node *yaml.Node) error {
 	default:
 		panic("unknown type")
 	}
+
 }

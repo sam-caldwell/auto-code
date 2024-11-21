@@ -9,6 +9,7 @@ func (p Object) String() string {
 	if err != nil {
 		panic(err)
 	}
+
 	return string(object)
 
 }
