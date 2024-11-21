@@ -14,7 +14,7 @@ func (p *Identifier) Validate() error {
 	*p = Identifier(strings.TrimSpace(string(*p)))
 
 	if re := regexp.MustCompile(pattern); !re.MatchString(string(*p)) {
-		return fmt.Errorf("invalid artifact name (%s)", *p)
+		return fmt.Errorf("invalid identifier (%s)", *p)
 	}
 
 	return nil
