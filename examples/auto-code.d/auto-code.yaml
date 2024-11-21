@@ -35,32 +35,13 @@ configuration:
   command-line:
     $ref: './auto-code.d/service-graph/configuration/command-line.yaml'
 
-# Define any httpContract endpoints and map them to the appropriate services
-# to ensure a consistent well-defined contract between all parties.
-httpContract:
-  artifacts:
-    - api
-    - frontend
-  endpoints:
-    - $ref: './auto-code.d/httpContract/endpoints/healthcheck/healthcheck.yaml'
-    - path: /auth/login
-      version: v1
-      $ref: './auto-code.d/httpContract/endpoints/security/identity/login.yaml'
-    - path: /auth/logout
-      version: v1
-      $ref: './auto-code.d/httpContract/endpoints/security/identity/logout.yaml'
-    - path: /user/profile
-      version: v1
-      $ref: './auto-code.d/httpContract/endpoints/security/user/profile.yaml'
-  security:
-    $ref: './auto-code/httpContract/security/decorators.yaml'
-
 dataContract:
   - name: apiDatabase
     artifacts:
       - database
+    driver: postgresql
     schema:
-      driver: postgresql
+
       tables:
         - $ref: './auto-code/database/schema/tables/users.yaml'
         - $ref: './auto-code/database/schema/tables/groups.yaml'
@@ -70,3 +51,26 @@ dataContract:
       functions:
         - $ref: './auto-code/database/schema/functions/createUser.yaml'
       procedures:
+
+# Define any httpContract endpoints and map them to the appropriate services
+# to ensure a consistent well-defined contract between all parties.
+httpContract:
+  - name: frontend-api-contract
+    artifacts:
+      - api
+      - frontend
+    driver: rest
+    schema:
+      endpoints:
+        - $ref: './auto-code.d/httpContract/endpoints/healthcheck/healthcheck.yaml'
+        - path: /auth/login
+          version: v1
+          $ref: './auto-code.d/httpContract/endpoints/security/identity/login.yaml'
+        - path: /auth/logout
+          version: v1
+          $ref: './auto-code.d/httpContract/endpoints/security/identity/logout.yaml'
+        - path: /user/profile
+          version: v1
+          $ref: './auto-code.d/httpContract/endpoints/security/user/profile.yaml'
+      security:
+        $ref: './auto-code/httpContract/security/decorators.yaml'
